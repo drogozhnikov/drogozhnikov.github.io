@@ -1,22 +1,26 @@
-import VueRouter from 'unplugin-vue-router/vite';
-import {fileURLToPath, URL} from 'node:url'
+import VueRouter from 'unplugin-vue-router/vite'
+import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
 import Fonts from 'unplugin-fonts/vite'
-import {defineConfig} from 'vite'
-import Vuetify, {transformAssetUrls} from 'vite-plugin-vuetify'
+import { defineConfig } from 'vite'
+import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [VueRouter(), Vue({
-        base: '/drogozhnikov.github.io/',
-        template: {transformAssetUrls},
-    }), // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
+    base: '/',
+
+    plugins: [
+        VueRouter(),
+        Vue({
+            template: { transformAssetUrls },
+        }),
         Vuetify({
             autoImport: true,
             styles: {
                 configFile: 'src/styles/settings.scss',
             },
-        }), Fonts({
+        }),
+        Fonts({
             fontsource: {
                 families: [
                     {
@@ -26,15 +30,15 @@ export default defineConfig({
                     },
                 ],
             },
-        })],
-    define: {'process.env': {}},
+        }),
+    ],
+    define: { 'process.env': {} },
     css: {
         preprocessorOptions: {
             scss: {
-                // Указываем SASS, где искать файлы для @use и @import
-                includePaths: [fileURLToPath(new URL('./src', import.meta.url))],
-                // Если используешь новый компилятор (рекомендуется)
-                api: 'modern-compiler'
+                // 2. Для api: 'modern-compiler' используется loadPaths вместо includePaths
+                loadPaths: [fileURLToPath(new URL('./src', import.meta.url))],
+                api: 'modern-compiler',
             },
         },
     },
