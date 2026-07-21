@@ -1,0 +1,28 @@
+@use '@/styles/variables' as var
+
+.v-data-table :deep(tbody tr:hover)
+  background-color: var.$btn-descr !important
+
+.v-data-table :deep(.v-data-table__td)
+  position: relative
+  overflow: hidden
+
+.v-data-table :deep(.v-data-table__td:hover::after)
+  content: ""
+  position: absolute
+  background-color: var.$btn-descr
+  left: 0
+  right: 0
+  top: -5000px
+  bottom: -5000px
+  z-index: -1
+  pointer-events: none
+
+/* 4. Сама ячейка  */
+.v-data-table :deep(.v-data-table__td:hover)
+  background-color: var.$btn-descr !important
+  z-index: 2
+
+.v-data-table :deep(.v-data-table__td > *)
+  position: relative
+  z-index: 3

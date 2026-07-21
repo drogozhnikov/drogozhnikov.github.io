@@ -1,0 +1,32 @@
+@use '@/styles/variables' as var
+
+.glowing
+  text-transform: none
+  cursor: pointer
+  transition: 0.5s ease
+
+@mixin glowing($color-value)
+  color: var.$text
+  background: $color-value
+  border: 1px solid $color-value
+  text-shadow: 0 0 5px var.$text, 0 0 10px var.$text, 0 0 20px var.$text
+  box-shadow: 0 0 5px $color-value, 0 0 20px $color-value, 0 0 50px $color-value, 0 0 100px $color-value
+
+.glowing-primary:hover
+  @include glowing(var.$secondary)
+
+.glowing-surface:hover
+  @include glowing(var.$surface03)
+
+.glowing-warning:hover
+  @include glowing(var.$warning)
+
+
+.glowing-copy:hover
+  @include glowing(rgba(var(--v-theme-copy), 0.5))
+
+.glowing-descr:hover
+  @include glowing(rgba(var(--v-theme-descr), 0.5))
+
+.glowing-update:hover
+  @include glowing(rgba(var(--v-theme-update), 0.5))

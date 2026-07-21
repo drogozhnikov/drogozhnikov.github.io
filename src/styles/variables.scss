@@ -1,0 +1,33 @@
+$transparent: rgba(var(--v-theme-background), 0);
+
+$primary01: rgba(var(--v-theme-primary), 0.1);
+$primary04: rgba(var(--v-theme-primary), 0.4);
+$primary07: rgba(var(--v-theme-primary), 0.7);
+
+$secondary: rgba(var(--v-theme-secondary), 0.7);
+
+$background07: rgba(var(--v-theme-background), 0.7);
+$background05: rgba(var(--v-theme-background), 0.5);
+$background03: rgba(var(--v-theme-background), 0.3);
+
+$surface07: rgba(var(--v-theme-surface), 0.7);
+$surface05: rgba(var(--v-theme-surface), 0.5);
+$surface03: rgba(var(--v-theme-surface), 0.3);
+
+$hover05: rgba(var(--v-theme-hover), 0.5);
+
+$warning: rgba(var(--v-theme-warning), 0.7);
+$success: rgba(var(--v-theme-success), 0.7);
+
+$btn-copy: rgba(var(--v-theme-copy), 0.1);
+$btn-descr: rgba(var(--v-theme-copy), 0.1);
+$btn-update: rgba(var(--v-theme-copy), 0.1);
+
+$text: rgb(var(--v-theme-text), 1);
+
+$icons: rgb(var(--v-theme-icons), 1);
+
+$app-blur: 20px;
+$border-radius: 25px;
+
+$heart: rgba(233, 156, 174, 0.3);
