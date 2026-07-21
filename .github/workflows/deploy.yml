@@ -2,7 +2,7 @@ name: Deploy Online CV to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # Измените на master, если ваша главная ветка называется master
+    branches: [ master ]
 
 permissions:
   contents: read
