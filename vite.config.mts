@@ -8,6 +8,7 @@ import Vuetify, {transformAssetUrls} from 'vite-plugin-vuetify'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [VueRouter(), Vue({
+        base: '/drogozhnikov.github.io/',
         template: {transformAssetUrls},
     }), // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
         Vuetify({
