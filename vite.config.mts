@@ -36,9 +36,8 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                // 2. Для api: 'modern-compiler' используется loadPaths вместо includePaths
+                // Пути поиска для Sass (Modern API)
                 loadPaths: [fileURLToPath(new URL('./src', import.meta.url))],
-                api: 'modern-compiler',
             },
         },
     },
