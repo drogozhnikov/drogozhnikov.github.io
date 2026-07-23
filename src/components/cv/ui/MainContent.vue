@@ -34,9 +34,9 @@
 </template>
 
 <script setup>
-import Header from "@/components/cv/ui/Header.vue";
-import Experience from '@/components/cv/ui/Experience.vue';
-import Education from '@/components/cv/ui/Education.vue';
+import Header from "@/components/cv/ui/mainpage/Header.vue";
+import Experience from '@/components/cv/ui/mainpage/Experience.vue';
+import Education from '@/components/cv/ui/mainpage/Education.vue';
 
 defineProps({
   data: { type: Object, required: true },

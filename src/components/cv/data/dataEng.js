@@ -1,4 +1,4 @@
-export const resumeEn = {
+export const resumeEng = {
     firstName: 'Dmitry',
     lastName: 'Rogozhnikov',
     profession: 'Software Team Lead',
@@ -18,7 +18,7 @@ export const resumeEn = {
     about: 'Experienced developer and team lead focused on architecture design, scalable backend/frontend applications, and team management.',
     contacts: [
         { icon: 'mdi-phone', text: '+375 (29) 563-08-39', url: 'tel:+375295630839' },
-        { icon: 'mdi-email', text: 'Gmail', url: 'mailto:DitarRogozhnikov@gmail.com' },
+        { icon: 'mdi-email', text: 'Gmail', url: 'mailto:'+'DitarRogozhnikov@gmail.com' },
         { icon: 'mdi-github', text: 'GitHub', url: 'https://github.com/drogozhnikov/' },
         { icon: 'mdi-linkedin', text: 'LinkedIn', url: 'https://www.linkedin.com/in/дмитрий-рогожников-449245199/' },
         { icon: '$TelegramIcon', text: 'Telegram', url: 'https://t.me/drogozhnikov' },

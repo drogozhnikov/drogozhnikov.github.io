@@ -9,7 +9,6 @@
       </div>
     </div>
 
-    <!-- Кнопка переключателя языка в правом верхнем углу -->
     <div class="lang-switcher">
       <v-btn-toggle
           :model-value="currentLang"

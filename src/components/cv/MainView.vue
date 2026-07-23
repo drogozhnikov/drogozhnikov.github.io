@@ -28,15 +28,22 @@
 <script setup>
 import { ref, computed } from 'vue'
 import Sidebar from "@/components/cv/ui/Sidebar.vue";
-import MainContent from "@/components/cv/MainContent.vue";
+import MainContent from "@/components/cv/ui/MainContent.vue";
 
 import { resumeRu } from "@/components/cv/data/dataRu.js"
-import { resumeEn } from "@/components/cv/data/dataEng.js";
+import { resumeEng } from "@/components/cv/data/dataEng.js";
 
 const currentLang = ref('rus')
 
 const currentData = computed(() => {
-  return currentLang.value === 'rus' ? resumeRu : resumeEn
+  switch (currentLang.value){
+    case "rus":{
+      return resumeRu
+    }
+    default:{
+      return resumeEng
+    }
+  }
 })
 </script>
 

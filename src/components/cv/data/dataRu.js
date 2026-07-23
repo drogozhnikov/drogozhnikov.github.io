@@ -11,7 +11,7 @@ export const resumeRu = {
         contact: 'КОНТАКТЫ',
         personal: 'ЛИЧНЫЕ ДАННЫЕ',
         skills: 'НАВЫКИ',
-        software: 'П.О. / ИНСТРУМЕНТЫ',
+        software: 'ИНСТРУМЕНТЫ',
         hobbies: 'ХОББИ'
     },
 
@@ -24,10 +24,9 @@ export const resumeRu = {
         { icon: '$TelegramIcon', text: 'Telegram', url: 'https://t.me/drogozhnikov' },
     ],
     personal: [
-        { label: 'Дата рождения', value: '28 апреля 1995' },
-        { label: 'Национальность', value: 'Белорус' },
-        { label: 'Гражданство', value: 'Беларусь / Минск' },
-        { label: 'Языки', value: 'Русский (родной), Английский (B1)' }
+        { label: 'Дата рождения:', value: '28 апреля 1995' },
+        { label: 'Гражданство:', value: 'Беларусь / Минск' },
+        { label: 'Языки:', value: 'Русский (родной), Английский (B1)' }
     ],
     skills: [
         { name: 'Коммуникация', level: 90 },
