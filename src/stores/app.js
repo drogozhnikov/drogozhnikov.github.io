@@ -17,7 +17,7 @@ export const PROFILES = new Map([
   }],
   [DEV, {
     baseUrl: ["http://192.168.100.8:23000/"],
-    gatewayUrl: "http://192.168.100.8:8080/api/",
+    gatewayUrl: "",
     imagesUrl: "public/images/themes/",
     isDebug: true
   }],

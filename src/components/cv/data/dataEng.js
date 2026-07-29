@@ -1,8 +1,11 @@
+// resumeEng.js
+import { general } from './general'
+
 export const resumeEng = {
+    ...general,
     firstName: 'Dmitry',
     lastName: 'Rogozhnikov',
     profession: 'Software Team Lead',
-    avatar: '/profile.png',
 
     labels: {
         about: 'ABOUT',
@@ -12,20 +15,13 @@ export const resumeEng = {
         personal: 'PERSONAL',
         skills: 'SKILLS',
         software: 'SOFTWARE',
+        technologies: 'TECHNOLOGIES',
         hobbies: 'HOBBIES'
     },
 
     about: 'Experienced developer and team lead focused on architecture design, scalable backend/frontend applications, and team management.',
-    contacts: [
-        { icon: 'mdi-phone', text: '+375 (29) 563-08-39', url: 'tel:+375295630839' },
-        { icon: 'mdi-email', text: 'Gmail', url: 'mailto:'+'DitarRogozhnikov@gmail.com' },
-        { icon: 'mdi-github', text: 'GitHub', url: 'https://github.com/drogozhnikov/' },
-        { icon: 'mdi-linkedin', text: 'LinkedIn', url: 'https://www.linkedin.com/in/дмитрий-рогожников-449245199/' },
-        { icon: '$TelegramIcon', text: 'Telegram', url: 'https://t.me/drogozhnikov' },
-    ],
     personal: [
         { label: 'Birthday', value: '28th April 1995' },
-        { label: 'Nationality', value: 'Belarusian' },
         { label: 'Citizenship', value: 'Belarus / Minsk' },
         { label: 'Languages', value: 'Russian (native), English (B1)' }
     ],
@@ -35,19 +31,11 @@ export const resumeEng = {
         { name: 'Teamwork', level: 95 },
         { name: 'Innovative', level: 80 }
     ],
-    software: [
-        { name: 'Kotlin', level: 90 },
-        { name: 'Java', level: 85 },
-        { name: 'Vuetify', level: 90 },
-        { name: 'Spring framework', level: 80 },
-        { name: 'PostgreSQL', level: 70 }
-    ],
     hobbies: [
-        { name: 'Design', icon: 'mdi-pencil-ruler' },
+        { name: 'Architecture Design', icon: 'mdi-pencil-ruler' },
         { name: 'Development', icon: 'mdi-code-tags' },
         { name: '3D Modeling', icon: 'mdi-cube-outline' },
         { name: 'Woodcarving', icon: 'mdi-saw-blade' },
-        { name: 'Cycling', icon: 'mdi-bike' },
         { name: 'Traveling', icon: 'mdi-airplane' }
     ],
     experience: [

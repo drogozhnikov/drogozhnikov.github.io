@@ -12,7 +12,10 @@
     <ProgressList :title="labels?.skills || 'SKILLS'" :items="skills" />
     <v-divider class="border-opacity-25 mb-6" />
 
-    <ProgressList :title="labels?.software || 'SOFTWARE'" :items="software" />
+    <Software :title="labels?.software || 'SOFTWARE'" :items="software" />
+    <v-divider class="border-opacity-25 mb-6" />
+
+    <Technologies :title="labels?.technologies || 'TECHNOLOGIES'" :items="technologies" />
     <v-divider class="border-opacity-25 mb-6" />
 
     <Hobbies :title="labels?.hobbies || 'HOBBIES'" :hobbies="hobbies" />
@@ -25,6 +28,8 @@ import Contacts from "@/components/cv/ui/sidebar/Contacts.vue";
 import Personal from "@/components/cv/ui/sidebar/Personal.vue";
 import ProgressList from "@/components/cv/ui/sidebar/ProgressList.vue";
 import Hobbies from "@/components/cv/ui/sidebar/Hobbies.vue";
+import Software from "@/components/cv/ui/sidebar/Software.vue";
+import Technologies from "@/components/cv/ui/sidebar/Technologies.vue";
 
 defineProps({
   avatarSrc: { type: String, required: true },
@@ -32,6 +37,7 @@ defineProps({
   personal: { type: Array, default: () => [] },
   skills: { type: Array, default: () => [] },
   software: { type: Array, default: () => [] },
+  technologies: { type: Array, default: () => [] },
   hobbies: { type: Array, default: () => [] },
   labels: { type: Object, default: () => ({}) }
 })

@@ -9,6 +9,7 @@
               :personal="currentData.personal"
               :skills="currentData.skills"
               :software="currentData.software"
+              :technologies="currentData.technologies"
               :hobbies="currentData.hobbies"
               :labels="currentData.labels"
           />
@@ -26,21 +27,21 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import {ref, computed} from 'vue'
 import Sidebar from "@/components/cv/ui/Sidebar.vue";
 import MainContent from "@/components/cv/ui/MainContent.vue";
 
-import { resumeRu } from "@/components/cv/data/dataRu.js"
-import { resumeEng } from "@/components/cv/data/dataEng.js";
+import {resumeRu} from "@/components/cv/data/dataRu.js"
+import {resumeEng} from "@/components/cv/data/dataEng.js";
 
 const currentLang = ref('rus')
 
 const currentData = computed(() => {
-  switch (currentLang.value){
-    case "rus":{
+  switch (currentLang.value) {
+    case "rus": {
       return resumeRu
     }
-    default:{
+    default: {
       return resumeEng
     }
   }
