@@ -29,6 +29,7 @@
     <Education
         :educationList="data.education"
         :title="data.labels?.education"
+        :labels="data.labels"
     />
   </v-sheet>
 </template>
