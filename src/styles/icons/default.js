@@ -32,6 +32,8 @@ import TelegramIcon from "@/assets/icons/vue/contacts/telegram-icon.vue";
 import SettingsApkbotLogo from "@/assets/icons/vue/regular/settings-apkbot-logo.vue";
 import ExperiencesIcon from "@/assets/icons/vue/content/experiences-icon.vue";
 
+import DesiredPositionIcon from "@/assets/icons/vue/content/desired-position-icon.vue";
+
 export const default_icons = {
     AppErrorIcon,
     AppWarningIcon,
@@ -66,4 +68,6 @@ export const default_icons = {
 
     TelegramIcon,
     ExperiencesIcon,
+
+    DesiredPositionIcon,
 }

@@ -4,28 +4,59 @@ import { general } from './general'
 export const resumeRu = {
     ...general,
     firstName: 'Дмитрий',
+    surname: 'Евгеньевич',
     lastName: 'Рогожников',
     profession: 'Software Team Lead',
 
     labels: {
-        about: 'О СЕБЕ',
-        experience: 'ОПЫТ РАБОТЫ',
-        education: 'ОБРАЗОВАНИЕ',
-        contact: 'КОНТАКТЫ',
         personal: 'ЛИЧНЫЕ ДАННЫЕ',
+        contact: 'КОНТАКТЫ',
         skills: 'НАВЫКИ',
         software: 'ОСНОВНОЙ СТЕК',
         technologies: 'ТЕХНОЛОГИИ',
-        responsibilities: 'ОБЯЗАННОСТИ',
-        achievements: 'ДОСТИЖЕНИЯ',
         hobbies: 'ХОББИ',
 
+        about: 'Сопроводительное письмо',
+        experience: 'ОПЫТ РАБОТЫ',
+        responsibilities: 'ОБЯЗАННОСТИ',
+        achievements: 'ДОСТИЖЕНИЯ',
+
+        education: 'ОБРАЗОВАНИЕ',
         faculty: 'Факультет',
         department: 'Кафедра',
         speciality: 'Специальность',
+        desiredPositionTitle: 'ЖЕЛАЕМАЯ ДОЛЖНОСТЬ И ЗАРПЛАТА',
+        labelsDesired: {
+            salarySuffix: 'Br на руки',
+            specializations: 'Специализации',
+            employment: 'Занятость',
+            schedule: 'График работы',
+            travelTime: 'Желательное время в пути до работы'
+        },
     },
 
-    about: 'Опытнейший разработчик и тимлид. Занимаюсь проектированием архитектуры, разработкой масштабируемых приложений и управлением командами.',
+    desiredPosition: {
+        title: 'Software Team Lead / Senior Software Engineer',
+        salary: 9600,
+        specializations: ['Управление командой', 'Архитектура ПО', 'Full-stack разработка', ],
+        employment: 'Полная занятость',
+        schedule: ['Удаленная работа', 'Гибкий график'],
+        travelTime: 'До 30 минут / Удаленно'
+    },
+
+    about: [
+        {
+            text: 'Опытнейший разработчик и тимлид. Занимаюсь проектированием архитектуры, разработкой масштабируемых приложений и управлением командами.',
+            subtext: [
+                'Успешный опыт запуска проектов с нуля.',
+                'Фокус на чистый код, производительность и масштабируемость.'
+            ]
+        },
+        {
+            text: 'Открыт к интересным техническим вызовам и сильным командам.',
+            subtext: []
+        }
+    ],
     personal: [
         { label: 'Дата рождения', value: '28 апреля 1995' },
         { label: 'Проживание', value: 'Минск' },

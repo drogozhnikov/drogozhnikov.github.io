@@ -16,15 +16,16 @@
 
     <div v-for="(item, index) in experienceList" :key="index" class="mb-6">
       <v-row align="center" class="mb-0">
-        <v-col cols="12" sm="4" md="4" class="text-grey-darken-2 text-body-2 py-1">
-          <!-- Название роли -->
-          <div class="font-weight-bold text-grey-darken-4 text-subtitle-2 mb-1">
-            {{ item.role }}
-          </div>
+        <v-col cols="12" sm="4" md="4" class="text-grey-darken-2 text-body-2 py-1 d-flex flex-column align-center text-center">
 
           <!-- Период работы -->
           <div class="text-caption text-grey-darken-1">
             {{ formatPeriod(item) }}
+          </div>
+
+          <!-- Название роли -->
+          <div class="font-weight-bold text-grey-darken-4 text-subtitle-2 mb-1">
+            {{ item.role }}
           </div>
 
           <!-- Длительность -->
