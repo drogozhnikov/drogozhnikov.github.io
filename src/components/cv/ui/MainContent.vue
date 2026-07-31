@@ -21,6 +21,7 @@
     <Experience
         :experienceList="data.experience"
         :title="data.labels?.experience"
+        :labels="data.labels"
     />
 
     <!-- Образование -->

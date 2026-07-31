@@ -1,6 +1,7 @@
 <template>
   <section class="mb-8">
     <h3 class="text-h6 font-weight-bold text-grey-darken-4 mb-4 d-flex align-center text-no-wrap">
+      <v-icon icon="$AboutIcon" size="small" class="mr-3 flex-shrink-0" />
       {{ title }}
       <v-divider class="ml-4 border-opacity-50" />
     </h3>

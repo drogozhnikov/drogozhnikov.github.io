@@ -1,5 +1,5 @@
 // resumeRu.js
-import { general } from './general'
+import {general} from './general'
 
 export const resumeRu = {
     ...general,
@@ -18,8 +18,9 @@ export const resumeRu = {
 
         about: 'Сопроводительное письмо',
         experience: 'ОПЫТ РАБОТЫ',
-        responsibilities: 'ОБЯЗАННОСТИ',
-        achievements: 'ДОСТИЖЕНИЯ',
+        responsibilities: 'Обязанности',
+        achievements: 'Достижения',
+        projects: 'Связанные проекты и технологии',
 
         education: 'ОБРАЗОВАНИЕ',
         faculty: 'Факультет',
@@ -38,7 +39,7 @@ export const resumeRu = {
     desiredPosition: {
         title: 'Software Team Lead / Senior Software Engineer',
         salary: 9600,
-        specializations: ['Управление командой', 'Архитектура ПО', 'Full-stack разработка', ],
+        specializations: ['Управление командой', 'Архитектура ПО', 'Full-stack разработка',],
         employment: 'Полная занятость',
         schedule: ['Удаленная работа', 'Гибкий график'],
         travelTime: 'До 30 минут / Удаленно'
@@ -58,23 +59,23 @@ export const resumeRu = {
         }
     ],
     personal: [
-        { label: 'Дата рождения', value: '28 апреля 1995' },
-        { label: 'Проживание', value: 'Минск' },
-        { label: 'Гражданство/Разрешение на работу', value: 'Беларусь' },
-        { label: 'Языки', value: 'Русский (родной), Английский (B1)' }
+        {label: 'Дата рождения', value: '28 апреля 1995'},
+        {label: 'Проживание', value: 'Минск'},
+        {label: 'Гражданство/Разрешение на работу', value: 'Беларусь'},
+        {label: 'Языки', value: 'Русский (родной), Английский (B1)'}
     ],
     skills: [
-        { name: 'Коммуникация', level: 90 },
-        { name: 'Креативность', level: 85 },
-        { name: 'Работа в команде', level: 95 },
-        { name: 'Инновационность', level: 80 }
+        {name: 'Коммуникация', level: 90},
+        {name: 'Креативность', level: 85},
+        {name: 'Работа в команде', level: 95},
+        {name: 'Инновационность', level: 80}
     ],
     hobbies: [
-        { name: 'Проектирование', icon: 'mdi-pencil-ruler' },
-        { name: 'Разработка', icon: 'mdi-code-tags' },
-        { name: 'Моделирование', icon: 'mdi-cube-outline' },
-        { name: 'Резьба по дереву', icon: 'mdi-saw-blade' },
-        { name: 'Путешествия', icon: 'mdi-airplane' }
+        {name: 'Проектирование', icon: 'mdi-pencil-ruler'},
+        {name: 'Разработка', icon: 'mdi-code-tags'},
+        {name: 'Моделирование', icon: 'mdi-cube-outline'},
+        {name: 'Резьба по дереву', icon: 'mdi-saw-blade'},
+        {name: 'Путешествия', icon: 'mdi-airplane'}
     ],
     experience: [
         {
@@ -95,6 +96,29 @@ export const resumeRu = {
                 'Разработка Full-stack решения: Создание высокопроизводительного бэкенда на Kotlin/Spring Boot и адаптивных интерфейсов на Vuetify 3 для операторов и администраторов склада.',
                 'DevOps и контейнеризация: Настроил Docker-окружение и автоматический деплой системы электронной регистрации поставщиков на собственные сервера компании.',
                 'Оптимизация процессов: Провел масштабную работу по поиску слабых или неоптимизированных компонентов системы управления складом EME.MWS.'
+            ],
+            projects: [
+                {
+                    name: 'Система электронной регистрации поставщиков',
+                    url: 'https://21post.by/',
+                    description: 'Full-stack решение для автоматизации верификации контрагентов и управления заявками. Разработка бэкенда и адаптивных интерфейсов для операторов склада.',
+                    stack: [
+                        {name: 'Kotlin', icon: '$KotlinIcon'},
+                        {name: 'Spring Boot', icon: '$SpringBootIcon'},
+                        {name: 'Vue 3', icon: '$VueIcon'},
+                        {name: 'Vuetify', icon: '$VuetifyIcon'},
+                        {name: 'Docker', icon: '$DockerIcon'}
+                    ]
+                },
+                {
+                    name: 'Оптимизация WMS (EME.MWS)',
+                    url: 'https://eme-wms.ru/',
+                    description: 'Поиск слабых или неоптимизированных компонентов системы управления складом и их рефакторинг.',
+                    stack: [
+                        {name: 'REST API', icon: '$RestIcon'},
+                        {name: 'SQL', icon: '$DatabaseIcon'}
+                    ]
+                }
             ]
         },
         {
@@ -118,6 +142,29 @@ export const resumeRu = {
                 'DevOps и контейнеризация: Спроектировал Docker-окружение и схему работы электронной регистрации поставщиков на основе микросервисной архитектуры.',
                 'Оптимизация процессов: Автоматизировал сбор данных о поставщиках, что сократило время обработки входящих заявок.',
                 'На конец 2025г системой активно пользовалось около 300 поставщиков компании.'
+            ],
+            projects: [
+                {
+                    name: 'Система электронной регистрации поставщиков',
+                    url: 'https://21post.by/',
+                    description: 'Full-stack решение для автоматизации верификации контрагентов и управления заявками. Разработка бэкенда и адаптивных интерфейсов для операторов склада.',
+                    stack: [
+                        {name: 'Kotlin', icon: '$KotlinIcon'},
+                        {name: 'Spring Boot', icon: '$SpringBootIcon'},
+                        {name: 'Vue 3', icon: '$VueIcon'},
+                        {name: 'Vuetify', icon: '$VuetifyIcon'},
+                        {name: 'Docker', icon: '$DockerIcon'}
+                    ]
+                },
+                {
+                    name: 'Оптимизация WMS (EME.MWS)',
+                    url: 'https://eme-wms.ru/',
+                    description: 'Поиск слабых или неоптимизированных компонентов системы управления складом и их рефакторинг.',
+                    stack: [
+                        {name: 'REST API', icon: '$RestIcon'},
+                        {name: 'SQL', icon: '$DatabaseIcon'}
+                    ]
+                }
             ]
         },
         {
@@ -136,6 +183,29 @@ export const resumeRu = {
                 'Создание нового функционала: Реализация в проекте деклараций нового типа, а так же инструкций к ним.',
                 'Рефакторинг проекта: с целью повышения производительности, скорости работы и удобства пользовательского интерфейса.',
                 'Проектирование и реализация back-end составляющей сайта WebDeclarant на Spring Framework.'
+            ],
+            projects: [
+                {
+                    name: 'Система электронной регистрации поставщиков',
+                    url: 'https://21post.by/',
+                    description: 'Full-stack решение для автоматизации верификации контрагентов и управления заявками. Разработка бэкенда и адаптивных интерфейсов для операторов склада.',
+                    stack: [
+                        {name: 'Kotlin', icon: '$KotlinIcon'},
+                        {name: 'Spring Boot', icon: '$SpringBootIcon'},
+                        {name: 'Vue 3', icon: '$VueIcon'},
+                        {name: 'Vuetify', icon: '$VuetifyIcon'},
+                        {name: 'Docker', icon: '$DockerIcon'}
+                    ]
+                },
+                {
+                    name: 'Оптимизация WMS (EME.MWS)',
+                    url: 'https://eme-wms.ru/',
+                    description: 'Поиск слабых или неоптимизированных компонентов системы управления складом и их рефакторинг.',
+                    stack: [
+                        {name: 'REST API', icon: '$RestIcon'},
+                        {name: 'SQL', icon: '$DatabaseIcon'}
+                    ]
+                }
             ]
         },
         {
@@ -154,7 +224,8 @@ export const resumeRu = {
             ],
             achievements: [
                 'Настройка и успешный ввод в эксплуатацию новых серверных мощностей компании.'
-            ]
+            ],
+            projects: []
         },
     ],
     education: [

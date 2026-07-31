@@ -4,6 +4,7 @@ export const general = {
         { icon: 'mdi-phone', text: '+375 (29) 563-08-39', url: 'tel:+375295630839' },
         { icon: '$GmailIcon', text: 'Gmail', url: 'mailto:DitarRogozhnikov@gmail.com' },
         { icon: '$GitHubIcon', text: 'GitHub', url: 'https://github.com/drogozhnikov/' },
+        { icon: '$GitHubIcon', text: 'GitHub', url: 'https://github.com/orgs/ditardev/repositories' },
         { icon: '$LinkedInIcon', text: 'LinkedIn', url: 'https://www.linkedin.com/in/дмитрий-рогожников-449245199/' },
         { icon: '$TelegramIcon', text: 'Telegram', url: 'https://t.me/drogozhnikov' },
     ],

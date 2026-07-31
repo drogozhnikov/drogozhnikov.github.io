@@ -14,8 +14,9 @@
       <v-divider class="ml-2 border-opacity-50" />
     </h3>
 
-    <div v-for="(item, index) in experienceList" :key="index" class="mb-6">
+    <div v-for="(item, index) in experienceList" :key="index" class="experience-card mb-6 pa-4 pa-md-5">
       <v-row align="center" class="mb-0">
+        <!-- БЛОК ВЫРОВНЕН ПО ЦЕНТРУ -->
         <v-col cols="12" sm="4" md="4" class="text-grey-darken-2 text-body-2 py-1 d-flex flex-column align-center text-center">
 
           <!-- Период работы -->
@@ -82,18 +83,18 @@
         </v-col>
       </v-row>
 
-      <!-- Блоки Обязанности и Достижения -->
-      <v-row v-if="item.responsibilities || item.achievements || item.details" class="mt-2">
+      <!-- Блоки Обязанности, Достижения и Проекты -->
+      <v-row v-if="item.responsibilities || item.achievements || item.projects || item.details" class="mt-2">
         <v-col cols="12" class="pt-1">
 
           <!-- Обязанности -->
           <div v-if="item.responsibilities && item.responsibilities.length" class="mb-3">
-            <div class="text-caption font-weight-bold text-grey-darken-3 text-uppercase mb-1 d-flex align-center">
-              <v-icon icon="mdi-format-list-checks" size="small" class="mr-1 text-primary" />
+            <div class="text-caption font-weight-bold text-grey-darken-3 mb-2 d-flex align-center">
+              <v-icon icon="$ResponsibilitiesIcon" size="small" class="mr-1 text-primary" />
               {{ labels?.responsibilities || 'Обязанности' }}:
             </div>
-            <!-- Смещаем вправо только сам список -->
-            <ul class="details-list text-body-2 text-grey-darken-2 pl-4 ml-sm-6 ml-md-8">
+            <!-- Изменен класс с text-body-2 на text-caption -->
+            <ul class="details-list text-caption text-grey-darken-2 pl-4 ml-sm-6 ml-md-8">
               <li v-for="(resp, rIndex) in item.responsibilities" :key="rIndex" class="mb-1">
                 {{ resp }}
               </li>
@@ -101,21 +102,76 @@
           </div>
 
           <!-- Достижения -->
-          <div v-if="item.achievements && item.achievements.length">
-            <div class="text-caption font-weight-bold text-grey-darken-3 text-uppercase mb-1 d-flex align-center">
-              <v-icon icon="mdi-trophy-outline" size="small" class="mr-1 text-amber-darken-2" />
+          <div v-if="item.achievements && item.achievements.length" class="mb-3">
+            <div class="text-caption font-weight-bold text-grey-darken-3 mb-2 d-flex align-center">
+              <v-icon icon="$AchievementsIcon" size="small" class="mr-1 text-amber-darken-2" />
               {{ labels?.achievements || 'Достижения' }}:
             </div>
-            <!-- Смещаем вправо только сам список -->
-            <ul class="details-list text-body-2 text-grey-darken-2 pl-4 ml-sm-6 ml-md-8">
+            <!-- Изменен класс с text-body-2 на text-caption -->
+            <ul class="details-list text-caption text-grey-darken-2 pl-4 ml-sm-6 ml-md-8">
               <li v-for="(ach, aIndex) in item.achievements" :key="aIndex" class="mb-1">
                 {{ ach }}
               </li>
             </ul>
           </div>
 
+          <!-- СВЯЗАННЫЕ ПРОЕКТЫ ДЛЯ ДАННОГО МЕСТА РАБОТЫ -->
+          <div v-if="item.projects && item.projects.length" class="mb-3">
+            <div class="text-caption font-weight-bold text-grey-darken-3 mb-2 d-flex align-center">
+              <v-icon icon="$LinkedProjectsIcon" size="small" class="mr-1 text-info" />
+              {{ labels?.projects || 'Связанные проекты' }}:
+            </div>
+
+            <div class="pl-4 ml-sm-6 ml-md-8">
+              <div v-for="(project, pIndex) in item.projects" :key="pIndex" class="mb-3">
+
+                <!-- Название проекта (уменьшено до text-caption, но сохранена жирность) -->
+                <div class="font-weight-bold text-caption text-grey-darken-4 mb-1">
+                  <a
+                      v-if="project.url"
+                      :href="project.url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-decoration-none text-primary project-link"
+                  >
+                    {{ project.name }}
+                    <v-icon size="x-small" class="ml-1 icon-link">mdi-open-in-new</v-icon>
+                  </a>
+                  <span v-else>{{ project.name }}</span>
+                </div>
+
+                <!-- Описание проекта (уменьшено до text-caption) -->
+                <p v-if="project.description" class="text-caption text-grey-darken-2 mb-2">
+                  {{ project.description }}
+                </p>
+
+                <!-- Стек технологий проекта -->
+                <div v-if="project.stack && project.stack.length" class="d-flex flex-wrap mt-1">
+                  <v-chip
+                      v-for="(tech, tIndex) in project.stack"
+                      :key="tIndex"
+                      size="x-small"
+                      variant="tonal"
+                      color="primary"
+                      class="mr-1.5 mb-1.5 font-weight-medium"
+                  >
+                    <v-icon v-if="tech.icon" :icon="tech.icon" start size="x-small"></v-icon>
+                    {{ tech.name }}
+                  </v-chip>
+                </div>
+
+                <!-- Ненавязчивый разделитель между проектами внутри одного места работы -->
+                <v-divider
+                    v-if="pIndex !== item.projects.length - 1"
+                    class="mt-3 border-opacity-25"
+                ></v-divider>
+
+              </div>
+            </div>
+          </div>
+
           <!-- Обратная совместимость для details -->
-          <ul v-if="item.details && !item.responsibilities && !item.achievements" class="details-list text-body-2 text-grey-darken-2 pl-4 ml-sm-6 ml-md-8">
+          <ul v-if="item.details && !item.responsibilities && !item.achievements && !item.projects" class="details-list text-caption text-grey-darken-2 pl-4 ml-sm-6 ml-md-8">
             <li v-for="(detail, dIndex) in item.details" :key="dIndex" class="mb-1">
               {{ detail }}
             </li>
@@ -220,12 +276,22 @@ const totalExperienceText = computed(() => {
 </script>
 
 <style scoped>
+.experience-card {
+  background-color: rgba(128, 128, 128, 0.03);
+  border-radius: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.experience-card:hover {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
 .details-list {
   list-style-type: disc;
 }
 
 .details-list li {
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .summary-text {
@@ -238,6 +304,14 @@ const totalExperienceText = computed(() => {
 
 .company-link:hover {
   color: var(--v-theme-primary) !important;
+}
+
+.project-link {
+  transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+  opacity: 0.8;
 }
 
 .icon-link {
