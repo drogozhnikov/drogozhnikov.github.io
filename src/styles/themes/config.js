@@ -23,8 +23,8 @@ export const colorThemes = {
 }
 export let currentTheme = DEFAULT
 
-export let useParticles = false
-export let useSmoke = false
+export let useParticles = true
+export let useSmoke = true
 export let useEyes = false
 
 export const INTERVALS = new Map([
