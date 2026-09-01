@@ -30,10 +30,7 @@
       </svg>
     </Teleport>
 
-    <div
-        class="cv-liquid-glass-filter"
-        :style="{ filter: `url(#${filterId}) saturate(120%) brightness(1.15)` }"
-    />
+    <div class="cv-liquid-glass-filter" :style="filterStyle" />
     <div class="cv-liquid-glass-overlay" />
     <div class="cv-liquid-glass-specular" />
     <div class="cv-liquid-glass-content">
@@ -43,9 +40,20 @@
 </template>
 
 <script setup>
-import { useId } from 'vue'
+import { computed, useId } from 'vue'
 
 const filterId = `cv-liquid-glass-${useId().replace(/\W/g, '')}`
+
+const filterStyle = computed(() => {
+  const pageUrl = typeof window === 'undefined'
+      ? ''
+      : `${window.location.origin}${window.location.pathname}`
+  return {
+    filter: `url("${pageUrl}#${filterId}") saturate(120%) brightness(1.15)`,
+    backdropFilter: 'blur(4px)',
+    WebkitBackdropFilter: 'blur(4px)',
+  }
+})
 </script>
 
 <style>
@@ -98,11 +106,5 @@ const filterId = `cv-liquid-glass-${useId().replace(/\W/g, '')}`
   position: relative;
   z-index: 3;
   height: 100%;
-}
-
-@supports not ((backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))) {
-  .cv-liquid-glass-overlay {
-    background: rgba(40, 34, 30, 0.92);
-  }
 }
 </style>
