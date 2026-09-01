@@ -1,6 +1,6 @@
 <template>
   <v-empty-state
-      action-text="Login"
+      action-text="Home"
       headline="Whoops, 404"
       title="Page not found"
       text="The page you were looking for does not exist"
@@ -8,31 +8,23 @@
   >
     <template v-slot:actions>
       <v-btn
-          text="LogIn"
+          text="Home"
           color="primary"
           variant="outlined"
-          @click=onClickAction
-      ></v-btn>
+          @click="goHome"
+      />
     </template>
   </v-empty-state>
 </template>
 
-<script>
-import router from "@/router";
+<script setup>
+import { useRouter } from 'vue-router'
 
-export default {
-  name: "ErrorPage",
-  components: {},
-  methods: {
-    onClickAction() {
-      router.push('./')
-    }
-  }
-}
+const router = useRouter()
+const goHome = () => router.push('/')
 </script>
 
 <style lang="sass" scoped>
-@use '@/styles/main'
 .v-empty-state
   padding: 10%
 </style>

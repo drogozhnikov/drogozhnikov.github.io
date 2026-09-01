@@ -1,12 +1,11 @@
-// Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
-import "@fontsource/montserrat"; // Defaults to weight 400
-import "@fontsource/montserrat/400.css"; // Specify weight
-import "@fontsource/montserrat/400-italic.css"; // Specify weight and style
+import "@fontsource/montserrat";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/400-italic.css";
+import "@fontsource/montserrat/700.css";
 
-// Composables
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
@@ -14,11 +13,8 @@ import * as directives from 'vuetify/directives'
 import {aliases, mdi} from "vuetify/lib/iconsets/mdi";
 
 import * as config from "@/styles/themes/config"
-
 import {app_icons} from "@/styles/icons/icons.js"
-
 import '@/styles/settings.scss'
-import {defineProfile} from "@/stores/app.js";
 
 const aliasesCustom = {
   ...aliases, ...app_icons
@@ -38,10 +34,28 @@ export default createVuetify({
   },
   theme: {
     defaultTheme: defineTheme(),
-    themes: config.colorThemes,
-    icons: {
-      defaultSet: 'mdi',
-    }
+    themes: {
+      ...config.colorThemes,
+      light: {
+        dark: false,
+        colors: {
+          background: '#FFFFFF',
+          surface: '#FFFFFF',
+          primary: '#00ACC1',
+          secondary: '#546E7A',
+          error: '#E53935',
+          info: '#0288D1',
+          success: '#43A047',
+          warning: '#FB8C00',
+          hover: '#EEEEEE',
+          icons: '#424242',
+          text: '#212121',
+          copy: '#FFC107',
+          descr: '#00BCD4',
+          update: '#4CAF50',
+        },
+      },
+    },
   },
   styles: {
     configFile: '@/styles/settings.scss',
@@ -49,7 +63,6 @@ export default createVuetify({
 })
 
 export function defineTheme() {
-  defineProfile()
   config.initInterval()
   return config.currentTheme
 }

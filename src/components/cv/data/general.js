@@ -1,7 +1,7 @@
 export const general = {
     avatar: '/profile.png',
     contacts: [
-        { icon: 'mdi-phone', text: '+375 (29) 563-08-39', url: 'tel:+375295630839' },
+        { icon: 'mdi-phone', text: 'МТС', url: 'tel:+375295630839' },
         { icon: '$GmailIcon', text: 'Gmail', url: 'mailto:DitarRogozhnikov@gmail.com' },
         { icon: '$GitHubIcon', text: 'GitHub', url: 'https://github.com/drogozhnikov/' },
         { icon: '$GitHubIcon', text: 'GitHubOrg', url: 'https://github.com/orgs/ditardev/repositories' },

@@ -1,14 +1,29 @@
 @use 'variables' as var
+
 *
   box-sizing: border-box
+
+html, body
   background-size: cover
   font-size: 16px
-  font-family: "Montserrat", serif
+  font-family: "Montserrat", sans-serif
   font-style: normal
   font-weight: 400
-  line-height: 19.5px
+  line-height: 1.4
   text-align: left
-  color: var.$text
+
+.cv-label
+  font-weight: 700 !important
+
+.sidebar-title
+  margin: 0 0 12px
+  font-size: 1rem
+  font-weight: 700
+  line-height: 1.3
+  letter-spacing: 0.08em
+  text-transform: uppercase
+  text-align: center
+  color: #ffffff
 
 .v-card
   background-color: var.$transparent
@@ -16,102 +31,7 @@
   position: relative
   padding-bottom: 0
 
-.v-card-actions
-  padding: 0
-
-.blur
-  backdrop-filter: blur(4px)
-
-.v-list
-  background-color: var.$transparent
-
-.v-list-item
-  background-color: var.$transparent
-  border-radius: 10px
-
-.v-list-item:hover
-  background-color: var.$hover05
-  border-radius: 10px
-
 .transparent
-  background-color: var.$transparent
-
-.auth-card
-  display: flex
-  justify-content: space-around
-  flex-direction: column
-  height: 450px
-  padding: 30px
-  background-color: var.$primary04
-  border-radius: 25px
-  @media (max-width: 500px)
-    margin: 0 auto
-    padding: 15px
-
-.v-skeleton-loader
-  padding-top: 15px
-  padding-bottom: 15px
-  margin-top: 15px
-  margin-bottom: 15px
-  background-color: var.$transparent
-
-.auth-title-text
-  padding-top: 30px
-  padding-bottom: 20px
-  text-align: center
-  margin: 0 auto
-  display: flex
-
-.v-divider
-  margin-top: 5px
-  margin-bottom: 5px
-
-.keeper-btn
-  text-transform: none
-  height: 36px
-  max-height: 50px
-  padding-left: 20px
-  padding-right: 20px
-  border-radius: 12px
-
-.section
-  max-width: 99%
-  margin: 10px 0 0 10px
-  padding: 15px
-  background: var.$surface05
-  border-radius: var.$border-radius
-  background-size: cover
-
-.sections-row
-  display: flex
-  margin-right: 0.5%
-  margin-left: 0.5%
-  :deep(.v-input)
-    flex: 1 1 0%
-    width: 100%
-
-.v-text-field
-  padding: 0 0 10px 0
-
-.large-title-text
-  margin: 0 auto
-  font-weight: bold
-  font-size: 24px
-
-.small-text
-  font-size: 12px
-
-.small-text-linked
-  padding-left: 5px
-  font-size: 12px
-  text-decoration-line: underline
-
-.small-text-center
-  justify-content: center
-  margin: 0 auto
-  display: flex
-
-.v-dialog
   background-color: var.$transparent
 
 ::-webkit-scrollbar
@@ -128,7 +48,3 @@
 
 ::-webkit-scrollbar-thumb:hover
   background: var.$transparent
-
-
-
-

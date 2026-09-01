@@ -173,12 +173,10 @@ const formatHref = (url) => {
   }
 
   .hh-pdf-container {
-    /* 100% от доступного браузером места — никаких фиксированных миллиметров */
     width: 100% !important;
     max-width: 100% !important;
-    min-height: auto !important;
+    min-height: 297mm !important;
     margin: 0 !important;
-    /* Убираем жесткий padding при печати, так как браузер уже дал поля */
     padding: 8mm 10mm !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
@@ -194,7 +192,7 @@ const formatHref = (url) => {
 <!-- ЛОКАЛЬНЫЕ СТИЛИ КОМПОНЕНТА -->
 <style scoped>
 .hh-pdf-container {
-  width: 210mm;
+  width: 100%;
   min-height: 297mm;
   box-sizing: border-box;
   padding: 12mm 15mm;
@@ -203,7 +201,7 @@ const formatHref = (url) => {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 9pt;
   line-height: 1.4;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* Шапка */
@@ -462,6 +460,13 @@ const formatHref = (url) => {
   padding: 2px 7px;
   border-radius: 3px;
   border: 1px solid #e1e4e8;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+li {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .about-block {

@@ -4,6 +4,7 @@ import { general } from './general'
 export const resumeEng = {
     ...general,
     firstName: 'Dmitry',
+    surname: 'Evgenievich',
     lastName: 'Rogozhnikov',
     profession: 'Software Team Lead',
 

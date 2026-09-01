@@ -1,6 +1,6 @@
 <template>
   <section class="mb-6">
-    <h3 class="text-h6 font-weight-bold text-grey-darken-4 mb-4 d-flex align-center">
+    <h3 class="cv-label text-h6 text-grey-darken-4 mb-4 d-flex align-center">
       <v-icon icon="$EducationIcon" size="small" class="mr-3 flex-shrink-0" />
       {{ title }}
       <v-divider class="ml-4 border-opacity-50" />
@@ -48,17 +48,17 @@
 
               <!-- Факультет -->
               <div v-if="item.faculty" class="text-caption font-weight-medium text-grey-darken-2 mt-1">
-                <span class="font-weight-bold">{{ labels.faculty }}:</span> {{ item.faculty }}
+                <span class="cv-label">{{ labels.faculty }}:</span> {{ item.faculty }}
               </div>
 
               <!-- Кафедра -->
               <div v-if="item.department" class="text-caption font-weight-medium text-grey-darken-2 mt-0.5">
-                <span class="font-weight-bold">{{ labels.department }}:</span> {{ item.department }}
+                <span class="cv-label">{{ labels.department }}:</span> {{ item.department }}
               </div>
 
               <!-- Специальность / Детали -->
               <div v-if="item.details" class="text-caption font-weight-medium text-grey-darken-2 mt-0.5">
-                <span class="font-weight-bold">{{ labels.speciality }}:</span> {{ item.details }}
+                <span class="cv-label">{{ labels.speciality }}:</span> {{ item.details }}
               </div>
             </div>
           </v-col>

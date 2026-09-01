@@ -1,16 +1,13 @@
-import VueRouter from 'unplugin-vue-router/vite'
-import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
 import Fonts from 'unplugin-fonts/vite'
+import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
-// https://vitejs.dev/config/
 export default defineConfig({
     base: '/',
 
     plugins: [
-        VueRouter(),
         Vue({
             template: { transformAssetUrls },
         }),
@@ -32,15 +29,6 @@ export default defineConfig({
             },
         }),
     ],
-    define: { 'process.env': {} },
-    css: {
-        preprocessorOptions: {
-            scss: {
-                // Пути поиска для Sass (Modern API)
-                loadPaths: [fileURLToPath(new URL('./src', import.meta.url))],
-            },
-        },
-    },
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),

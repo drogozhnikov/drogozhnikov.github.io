@@ -37,12 +37,12 @@ export const resumeRu = {
     },
 
     desiredPosition: {
-        title: 'Software Team Lead / Senior Software Engineer',
+        title: 'Lead Software Engineer',
         salary: 9900,
         specializations: ['Управление командой', 'Архитектура ПО', 'Full-stack разработка',],
         employment: 'Полная занятость',
         schedule: ['Удаленная работа', 'Гибкий график'],
-        travelTime: 'До 30 минут / Удаленно'
+        travelTime: 'Удаленно / До 30 минут'
     },
 
     about: [

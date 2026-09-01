@@ -1,9 +1,7 @@
 <template>
-  <div class="mb-4">
+  <div class="mb-6">
     <!-- Главный заголовок секции -->
-    <h3 class="text-subtitle-1 font-weight-bold mb-3 tracking-wider text-uppercase text-grey-lighten-2">
-      {{ title }}
-    </h3>
+    <h3 class="sidebar-title cv-label">{{ title }}</h3>
 
     <!-- Итерация по подкатегориям -->
     <div
@@ -12,7 +10,7 @@
         class="mb-4"
     >
       <!-- Название подкатегории -->
-      <div class="text-caption font-weight-medium text-primary mb-2 text-uppercase letter-spacing-1">
+      <div class="cv-label text-caption text-primary mb-2 text-uppercase letter-spacing-1">
         {{ group.category }}
       </div>
 

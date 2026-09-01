@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="resume-main pa-8" elevation="0">
+  <v-sheet theme="light" class="resume-main pa-8" elevation="0">
     <!-- Шапка с выбором языка -->
     <Header
         :firstName="data.firstName"
@@ -7,7 +7,9 @@
         :lastName="data.lastName"
         :profession="data.profession"
         :currentLang="currentLang"
+        :exporting="exporting"
         @update:currentLang="$emit('update:currentLang', $event)"
+        @print="$emit('print', $event)"
     />
     <!-- Опыт работы -->
     <DesiredPosition
@@ -48,15 +50,25 @@ import DesiredPosition from "@/components/cv/ui/mainpage/DesiredPosition.vue";
 
 defineProps({
   data: { type: Object, required: true },
-  currentLang: { type: String, default: 'rus' }
+  currentLang: { type: String, default: 'rus' },
+  exporting: { type: Boolean, default: false }
 })
 
-defineEmits(['update:currentLang'])
+defineEmits(['update:currentLang', 'print'])
 </script>
 
 <style scoped>
 .resume-main {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #ffffff !important;
+  color: #212121;
   height: 100%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+@media (max-width: 959px) {
+  .resume-main {
+    border-radius: 0 0 15px 15px;
+  }
 }
 </style>

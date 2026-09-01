@@ -46,5 +46,14 @@ defineProps({
 <style scoped>
 .resume-sidebar {
   height: 100%;
+  background-color: rgba(var(--v-theme-surface), 0.8) !important;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+@media (max-width: 959px) {
+  .resume-sidebar {
+    border-radius: 15px 15px 0 0;
+  }
 }
 </style>

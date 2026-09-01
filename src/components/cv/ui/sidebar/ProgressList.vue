@@ -1,6 +1,6 @@
 <template>
   <div class="mb-6">
-    <h3 class="text-subtitle-1 font-weight-bold mb-3 tracking-wider">{{ title }}</h3>
+    <h3 class="sidebar-title cv-label">{{ title }}</h3>
     <div v-for="(item, index) in items" :key="index" class="mb-3">
       <div class="d-flex justify-between text-body-2 mb-1">
         <span>{{ item.name }}</span>

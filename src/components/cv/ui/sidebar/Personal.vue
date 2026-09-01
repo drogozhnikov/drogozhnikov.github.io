@@ -1,9 +1,14 @@
 <template>
-  <div class="mb-6">
-    <h3 class="text-subtitle-1 font-weight-bold mb-3 tracking-wider">{{ title }}</h3>
-    <div v-for="(item, index) in items" :key="index" class="mb-2 text-body-2">
-      <div class="text-grey-lighten-1 text-caption">{{ item.label }}</div>
-      <div class="font-weight-medium">{{ item.value }}</div>
+  <div class="personal-block mb-6">
+    <h3 class="sidebar-title cv-label">{{ title }}</h3>
+
+    <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="personal-row"
+    >
+      <div class="personal-label cv-label">{{ item.label }}</div>
+      <div class="personal-value">{{ item.value }}</div>
     </div>
   </div>
 </template>
@@ -14,3 +19,28 @@ defineProps({
   items: { type: Array, default: () => [] }
 })
 </script>
+
+<style scoped>
+.personal-row {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.personal-row:last-child {
+  border-bottom: none;
+}
+
+.personal-label {
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.personal-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #ffffff;
+}
+</style>

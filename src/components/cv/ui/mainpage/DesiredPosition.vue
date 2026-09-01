@@ -1,6 +1,6 @@
 <template>
   <section class="mb-8">
-    <h3 class="text-h6 font-weight-bold text-grey-darken-4 mb-4 d-flex align-center text-no-wrap">
+    <h3 class="cv-label text-h6 text-grey-darken-4 mb-4 d-flex align-center text-no-wrap">
       <v-icon icon="$DesiredPositionIcon" size="small" class="mr-3 flex-shrink-0" />
       {{ title }}
       <v-divider class="ml-4 border-opacity-50" />
@@ -23,7 +23,7 @@
     <div class="d-flex flex-column gap-2 text-body-2">
       <!-- Специализации -->
       <div v-if="data.specializations && data.specializations.length">
-        <span class="font-weight-bold text-grey-darken-3">{{ labels.specializations }}:</span>
+        <span class="cv-label text-grey-darken-3">{{ labels.specializations }}:</span>
         <span class="text-grey-darken-2 ml-2">
           {{ data.specializations.join(' — ') }}
         </span>
@@ -31,19 +31,19 @@
 
       <!-- Занятость -->
       <div v-if="data.employment">
-        <span class="font-weight-bold text-grey-darken-3">{{ labels.employment }}:</span>
+        <span class="cv-label text-grey-darken-3">{{ labels.employment }}:</span>
         <span class="text-grey-darken-2 ml-2">{{ data.employment }}</span>
       </div>
 
       <!-- График работы -->
       <div v-if="data.schedule && data.schedule.length">
-        <span class="font-weight-bold text-grey-darken-3">{{ labels.schedule }}:</span>
+        <span class="cv-label text-grey-darken-3">{{ labels.schedule }}:</span>
         <span class="text-grey-darken-2 ml-2">{{ data.schedule.join(', ') }}</span>
       </div>
 
       <!-- Время в пути -->
       <div v-if="data.travelTime">
-        <span class="font-weight-bold text-grey-darken-3">{{ labels.travelTime }}:</span>
+        <span class="cv-label text-grey-darken-3">{{ labels.travelTime }}:</span>
         <span class="text-grey-darken-2 ml-2">{{ data.travelTime }}</span>
       </div>
     </div>
