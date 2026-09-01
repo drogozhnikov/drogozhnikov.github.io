@@ -9,6 +9,11 @@ const router = createRouter({
       component: () => import('@/pages/HomePage.vue'),
     },
     {
+      path: '/preview',
+      name: 'preview',
+      component: () => import('@/pages/PrintPreview.vue'),
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('@/pages/ErrorPage.vue'),
