@@ -1,28 +1,30 @@
 <template>
-  <v-sheet class="resume-sidebar pa-6 text-white" elevation="0">
+  <LiquidGlass class="resume-sidebar">
+    <div class="sidebar-inner pa-6 text-white">
+      <Avatar :src="avatarSrc" />
 
-    <Avatar :src="avatarSrc" />
+      <Personal :title="labels?.personal || 'PERSONAL'" :items="personal" />
+      <v-divider class="border-opacity-25 mb-6" />
 
-    <Personal :title="labels?.personal || 'PERSONAL'" :items="personal" />
-    <v-divider class="border-opacity-25 mb-6" />
+      <Contacts :title="labels?.contact || 'CONTACT'" :contacts="contacts" />
+      <v-divider class="border-opacity-25 mb-6" />
 
-    <Contacts :title="labels?.contact || 'CONTACT'" :contacts="contacts" />
-    <v-divider class="border-opacity-25 mb-6" />
+      <ProgressList :title="labels?.skills || 'SKILLS'" :items="skills" />
+      <v-divider class="border-opacity-25 mb-6" />
 
-    <ProgressList :title="labels?.skills || 'SKILLS'" :items="skills" />
-    <v-divider class="border-opacity-25 mb-6" />
+      <Software :title="labels?.software || 'SOFTWARE'" :items="software" />
+      <v-divider class="border-opacity-25 mb-6" />
 
-    <Software :title="labels?.software || 'SOFTWARE'" :items="software" />
-    <v-divider class="border-opacity-25 mb-6" />
+      <Technologies :title="labels?.technologies || 'TECHNOLOGIES'" :items="technologies" />
+      <v-divider class="border-opacity-25 mb-6" />
 
-    <Technologies :title="labels?.technologies || 'TECHNOLOGIES'" :items="technologies" />
-    <v-divider class="border-opacity-25 mb-6" />
-
-    <Hobbies :title="labels?.hobbies || 'HOBBIES'" :hobbies="hobbies" />
-  </v-sheet>
+      <Hobbies :title="labels?.hobbies || 'HOBBIES'" :hobbies="hobbies" />
+    </div>
+  </LiquidGlass>
 </template>
 
 <script setup>
+import LiquidGlass from "@/components/cv/ui/LiquidGlass.vue";
 import Avatar from "@/components/cv/ui/sidebar/Avatar.vue";
 import Contacts from "@/components/cv/ui/sidebar/Contacts.vue";
 import Personal from "@/components/cv/ui/sidebar/Personal.vue";
@@ -46,9 +48,12 @@ defineProps({
 <style scoped>
 .resume-sidebar {
   height: 100%;
-  background-color: rgba(var(--v-theme-surface), 0.8) !important;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+}
+
+.sidebar-inner {
+  height: 100%;
 }
 
 @media (max-width: 959px) {
