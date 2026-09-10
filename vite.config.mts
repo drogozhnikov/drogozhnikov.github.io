@@ -1,8 +1,25 @@
 import Vue from '@vitejs/plugin-vue'
 import Fonts from 'unplugin-fonts/vite'
+import { copyFileSync, mkdirSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
+const rootDir = fileURLToPath(new URL('.', import.meta.url))
+
+function githubPagesSpa() {
+    return {
+        name: 'github-pages-spa',
+        closeBundle() {
+            const dist = resolve(rootDir, 'dist')
+            const index = resolve(dist, 'index.html')
+            mkdirSync(resolve(dist, 'preview'), { recursive: true })
+            copyFileSync(index, resolve(dist, '404.html'))
+            copyFileSync(index, resolve(dist, 'preview/index.html'))
+        },
+    }
+}
 
 export default defineConfig({
     base: '/',
@@ -28,6 +45,7 @@ export default defineConfig({
                 ],
             },
         }),
+        githubPagesSpa(),
     ],
     resolve: {
         alias: {
