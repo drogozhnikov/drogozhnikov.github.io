@@ -1,9 +1,9 @@
 <template>
   <section class="mb-8">
-    <h3 class="cv-label text-h6 text-grey-darken-4 mb-4 d-flex align-center text-no-wrap">
-      <v-icon icon="$DesiredPositionIcon" size="small" class="mr-3 flex-shrink-0" />
-      {{ title }}
-      <v-divider class="ml-4 border-opacity-50" />
+    <h3 class="cv-label text-h6 text-grey-darken-4 mb-4 section-heading">
+      <v-icon icon="$DesiredPositionIcon" size="small" class="flex-shrink-0" />
+      <span class="section-heading__text">{{ title }}</span>
+      <v-divider class="section-heading__line border-opacity-50" />
     </h3>
 
     <!-- Желаемая должность и зарплата -->
