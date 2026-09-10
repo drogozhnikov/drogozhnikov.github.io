@@ -232,3 +232,19 @@ export const sql = {
   description: { ru: 'Язык запросов к БД', en: 'Database query language' },
   link: 'https://en.wikipedia.org/wiki/SQL',
 }
+
+export const emel = {
+  name: 'EMEL',
+  description: { ru: 'Модуль EME.WMS', en: 'EME.WMS module' },
+  link: 'https://eme-wms.ru/',
+}
+export const emeld = {
+  name: 'EMELD',
+  description: { ru: 'Модуль EME.WMS', en: 'EME.WMS module' },
+  link: 'https://eme-wms.ru/',
+}
+export const emelx = {
+  name: 'EMELX',
+  description: { ru: 'Модуль EME.WMS', en: 'EME.WMS module' },
+  link: 'https://eme-wms.ru/',
+}

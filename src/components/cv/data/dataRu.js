@@ -1,15 +1,41 @@
 // resumeRu.js
 import {general} from './general'
 import {
+    css,
     docker,
+    emel,
+    emeld,
+    emelx,
+    flyway,
+    git,
+    gitLab,
+    gradle,
+    grafana,
+    html5,
     java,
+    javascript,
+    jira,
+    junit5,
+    jwt,
+    kafka,
     kotlin,
+    maven,
+    minio,
+    mockito,
+    postgresql,
+    prometheus,
     restApi,
+    sass,
+    sonarLint,
     springBoot,
+    springCloud,
+    springDataJpa,
     springFramework,
+    springSecurity,
     sql,
     vue3,
     vuetify,
+    windows,
 } from './techCatalog.js'
 
 export const resumeRu = {
@@ -39,6 +65,14 @@ export const resumeRu = {
         department: 'Кафедра',
         speciality: 'Специальность',
         desiredPositionTitle: 'ЖЕЛАЕМАЯ ДОЛЖНОСТЬ И ЗАРПЛАТА',
+        months: [
+            'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+        ],
+        present: 'По настоящее время',
+        presentShort: 'н.в.',
+        yearForms: ['год', 'года', 'лет'],
+        monthForms: ['месяц', 'месяца', 'месяцев'],
         labelsDesired: {
             salarySuffix: 'Br на руки',
             specializations: 'Специализации',
@@ -174,13 +208,33 @@ export const resumeRu = {
                     name: 'Система электронной регистрации поставщиков',
                     url: 'https://21post.by/',
                     description: 'Full-stack решение для автоматизации верификации контрагентов и управления заявками. Разработка бэкенда и адаптивных интерфейсов для операторов склада.',
-                    stack: [kotlin, springBoot, vue3, vuetify, docker]
+                    stack: [
+                        kotlin,
+                        springFramework,
+                        springBoot,
+                        springCloud,
+                        springDataJpa,
+                        springSecurity,
+                        flyway,
+                        restApi,
+                        jwt,
+                        postgresql,
+                        vue3,
+                        vuetify,
+                        javascript,
+                        css,
+                        sass,
+                        docker,
+                        git,
+                        gradle,
+                        grafana,
+                    ]
                 },
                 {
-                    name: 'Оптимизация WMS (EME.MWS)',
+                    name: 'Система управления складом EME.WMS',
                     url: 'https://eme-wms.ru/',
                     description: 'Поиск слабых или неоптимизированных компонентов системы управления складом и их рефакторинг.',
-                    stack: [restApi, sql]
+                    stack: [emel, emeld, emelx, restApi, sql, git, gitLab, jira, sonarLint, grafana, windows]
                 }
             ]
         },
@@ -211,13 +265,33 @@ export const resumeRu = {
                     name: 'Система электронной регистрации поставщиков',
                     url: 'https://21post.by/',
                     description: 'Разработка и развитие full-stack решения: верификация контрагентов, заявки, интерфейсы для операторов склада.',
-                    stack: [kotlin, springBoot, vue3, vuetify, docker]
+                    stack: [
+                        kotlin,
+                        springFramework,
+                        springBoot,
+                        springCloud,
+                        springDataJpa,
+                        springSecurity,
+                        flyway,
+                        restApi,
+                        jwt,
+                        postgresql,
+                        vue3,
+                        vuetify,
+                        javascript,
+                        css,
+                        sass,
+                        docker,
+                        git,
+                        gradle,
+                        grafana,
+                    ]
                 },
                 {
-                    name: 'Развитие WMS (EME.MWS)',
+                    name: 'Система управления складом EME.WMS',
                     url: 'https://eme-wms.ru/',
                     description: 'Разработка складских модулей, интеграции и доработки существующих процессов.',
-                    stack: [restApi, sql]
+                    stack: [emel, emeld, emelx, restApi, sql, git, gitLab, jira, sonarLint, grafana, windows]
                 }
             ]
         },
@@ -248,7 +322,31 @@ export const resumeRu = {
                     name: 'eDeclarant / WebDeclarant',
                     url: 'https://declarant.by/ru/',
                     description: 'Коммуникационная платформа оформления таможенных деклараций: развитие функционала, backend и сопровождение под требования законодательства.',
-                    stack: [java, springFramework, restApi, sql]
+                    stack: [
+                        java,
+                        springFramework,
+                        springBoot,
+                        springCloud,
+                        springDataJpa,
+                        springSecurity,
+                        flyway,
+                        restApi,
+                        sql,
+                        html5,
+                        javascript,
+                        css,
+                        sass,
+                        kafka,
+                        minio,
+                        docker,
+                        git,
+                        maven,
+                        junit5,
+                        mockito,
+                        sonarLint,
+                        grafana,
+                        prometheus,
+                    ]
                 }
             ]
         },

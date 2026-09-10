@@ -163,6 +163,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import { calculateMonthsBetween, formatDuration } from '@/components/cv/utils/experienceDates.js'
 
 const props = defineProps({
   data: {
@@ -200,52 +201,7 @@ const narrativeSections = computed(() => {
   return sections
 })
 
-const parseDate = (str) => {
-  if (!str) return new Date()
-  const [month, year] = str.split('.').map(Number)
-  return new Date(year, month - 1, 1)
-}
-
-const pluralize = (number, one, two, five) => {
-  let n = Math.abs(number) % 100
-  if (n >= 5 && n <= 20) return five
-  n %= 10
-  if (n === 1) return one
-  if (n >= 2 && n <= 4) return two
-  return five
-}
-
-const formatDuration = (totalMonths, eng) => {
-  if (totalMonths <= 0) return ''
-
-  const years = Math.floor(totalMonths / 12)
-  const months = totalMonths % 12
-  const parts = []
-
-  if (eng) {
-    if (years > 0) parts.push(`${years} ${years === 1 ? 'year' : 'years'}`)
-    if (months > 0) parts.push(`${months} ${months === 1 ? 'month' : 'months'}`)
-  } else {
-    if (years > 0) parts.push(`${years} ${pluralize(years, 'год', 'года', 'лет')}`)
-    if (months > 0) parts.push(`${months} ${pluralize(months, 'месяц', 'месяца', 'месяцев')}`)
-  }
-
-  return parts.join(' ')
-}
-
-const calculateMonthsBetween = (startDateStr, endDateStr) => {
-  if (!startDateStr) return 0
-  const start = parseDate(startDateStr)
-  const end = endDateStr ? parseDate(endDateStr) : new Date()
-  const total = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
-  return total > 0 ? total : 0
-}
-
-const isEng = computed(() => /experience/i.test(props.data.labels?.experience || ''))
-
-const presentLabel = computed(() => (
-  isEng.value ? 'Present' : 'По настоящее время'
-))
+const presentLabel = computed(() => props.data.labels?.present)
 
 const totalExperienceText = computed(() => {
   const list = props.data?.experience
@@ -256,12 +212,12 @@ const totalExperienceText = computed(() => {
     totalMonths += calculateMonthsBetween(item.startDate, item.endDate)
   })
 
-  return formatDuration(totalMonths, isEng.value)
+  return formatDuration(totalMonths, props.data.labels)
 })
 
 const getItemDuration = (item) => {
   if (!item?.startDate) return ''
-  return formatDuration(calculateMonthsBetween(item.startDate, item.endDate), isEng.value)
+  return formatDuration(calculateMonthsBetween(item.startDate, item.endDate), props.data.labels)
 }
 
 const formatHref = (url) => {

@@ -12,13 +12,14 @@ import Resume from "@/components/cv/MainView.vue";
 @use '@/styles/variables' as var
 
 .section-center
-  margin: 24px auto
+  margin: 16px auto
   background: var.$transparent
-  width: 100%
-  max-width: 1440px
-  padding: 0 24px
+  width: 70%
+  max-width: 1760px
+  padding: 0
   box-sizing: border-box
   @media (max-width: 600px)
     margin: 0
+    width: 100%
     padding: 0
 </style>

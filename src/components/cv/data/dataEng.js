@@ -1,15 +1,41 @@
 // resumeEng.js
 import {general} from './general'
 import {
+    css,
     docker,
+    emel,
+    emeld,
+    emelx,
+    flyway,
+    git,
+    gitLab,
+    gradle,
+    grafana,
+    html5,
     java,
+    javascript,
+    jira,
+    junit5,
+    jwt,
+    kafka,
     kotlin,
+    maven,
+    minio,
+    mockito,
+    postgresql,
+    prometheus,
     restApi,
+    sass,
+    sonarLint,
     springBoot,
+    springCloud,
+    springDataJpa,
     springFramework,
+    springSecurity,
     sql,
     vue3,
     vuetify,
+    windows,
 } from './techCatalog.js'
 
 export const resumeEng = {
@@ -39,6 +65,14 @@ export const resumeEng = {
         department: 'Department',
         speciality: 'Major',
         desiredPositionTitle: 'DESIRED POSITION AND SALARY',
+        months: [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ],
+        present: 'Present',
+        presentShort: 'Present',
+        yearForms: ['year', 'years', 'years'],
+        monthForms: ['month', 'months', 'months'],
         labelsDesired: {
             salarySuffix: 'BYN net',
             specializations: 'Specializations',
@@ -174,13 +208,33 @@ export const resumeEng = {
                     name: 'Electronic supplier registration system',
                     url: 'https://21post.by/',
                     description: 'Full-stack solution for automating counterparty verification and application management. Backend and adaptive UIs for warehouse operators.',
-                    stack: [kotlin, springBoot, vue3, vuetify, docker]
+                    stack: [
+                        kotlin,
+                        springFramework,
+                        springBoot,
+                        springCloud,
+                        springDataJpa,
+                        springSecurity,
+                        flyway,
+                        restApi,
+                        jwt,
+                        postgresql,
+                        vue3,
+                        vuetify,
+                        javascript,
+                        css,
+                        sass,
+                        docker,
+                        git,
+                        gradle,
+                        grafana,
+                    ]
                 },
                 {
-                    name: 'WMS optimization (EME.MWS)',
+                    name: 'Warehouse management system EME.WMS',
                     url: 'https://eme-wms.ru/',
                     description: 'Identifying weak or unoptimized warehouse management system components and refactoring them.',
-                    stack: [restApi, sql]
+                    stack: [emel, emeld, emelx, restApi, sql, git, gitLab, jira, sonarLint, grafana, windows]
                 }
             ]
         },
@@ -211,13 +265,33 @@ export const resumeEng = {
                     name: 'Electronic supplier registration system',
                     url: 'https://21post.by/',
                     description: 'Development and evolution of a full-stack solution: counterparty verification, applications, and UIs for warehouse operators.',
-                    stack: [kotlin, springBoot, vue3, vuetify, docker]
+                    stack: [
+                        kotlin,
+                        springFramework,
+                        springBoot,
+                        springCloud,
+                        springDataJpa,
+                        springSecurity,
+                        flyway,
+                        restApi,
+                        jwt,
+                        postgresql,
+                        vue3,
+                        vuetify,
+                        javascript,
+                        css,
+                        sass,
+                        docker,
+                        git,
+                        gradle,
+                        grafana,
+                    ]
                 },
                 {
-                    name: 'WMS evolution (EME.MWS)',
+                    name: 'Warehouse management system EME.WMS',
                     url: 'https://eme-wms.ru/',
                     description: 'Warehouse module development, integrations, and enhancements to existing processes.',
-                    stack: [restApi, sql]
+                    stack: [emel, emeld, emelx, restApi, sql, git, gitLab, jira, sonarLint, grafana, windows]
                 }
             ]
         },
@@ -248,7 +322,31 @@ export const resumeEng = {
                     name: 'eDeclarant / WebDeclarant',
                     url: 'https://declarant.by/ru/',
                     description: 'Customs declaration platform: feature development, backend, and ongoing support to match legal requirements.',
-                    stack: [java, springFramework, restApi, sql]
+                    stack: [
+                        java,
+                        springFramework,
+                        springBoot,
+                        springCloud,
+                        springDataJpa,
+                        springSecurity,
+                        flyway,
+                        restApi,
+                        sql,
+                        html5,
+                        javascript,
+                        css,
+                        sass,
+                        kafka,
+                        minio,
+                        docker,
+                        git,
+                        maven,
+                        junit5,
+                        mockito,
+                        sonarLint,
+                        grafana,
+                        prometheus,
+                    ]
                 }
             ]
         },

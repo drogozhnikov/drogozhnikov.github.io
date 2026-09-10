@@ -144,12 +144,15 @@
                   <v-chip
                       v-for="(tech, tIndex) in project.stack"
                       :key="tIndex"
-                      size="x-small"
+                      size="small"
                       variant="tonal"
                       color="primary"
-                      class="mr-1.5 mb-1.5 font-weight-medium"
+                      class="project-tech-chip mr-1.5 mb-1.5 font-weight-medium"
+                      :href="tech.link || undefined"
+                      :target="tech.link ? '_blank' : undefined"
+                      :rel="tech.link ? 'noopener noreferrer' : undefined"
                   >
-                    <v-icon v-if="tech.icon" :icon="tech.icon" start size="x-small"></v-icon>
+                    <v-icon v-if="tech.icon" :icon="tech.icon" start size="16"></v-icon>
                     {{ tech.name }}
                   </v-chip>
                 </div>
@@ -176,6 +179,11 @@
 
 <script setup>
 import { computed } from 'vue'
+import {
+  calculateMonthsBetween,
+  formatDuration,
+  formatPeriod as formatPeriodByLabels
+} from '@/components/cv/utils/experienceDates.js'
 
 const props = defineProps({
   experienceList: { type: Array, default: () => [] },
@@ -183,75 +191,11 @@ const props = defineProps({
   labels: { type: Object, default: () => ({}) }
 })
 
-const MONTHS_RU = [
-  'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
-  'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
-]
-
-const parseDate = (str) => {
-  if (!str) return new Date()
-  const [month, year] = str.split('.').map(Number)
-  return new Date(year, month - 1, 1)
-}
-
-const pluralize = (number, one, two, five) => {
-  let n = Math.abs(number) % 100
-  if (n >= 5 && n <= 20) return five
-  n %= 10
-  if (n === 1) return one
-  if (n >= 2 && n <= 4) return two
-  return five
-}
-
-const formatDuration = (totalMonths) => {
-  if (totalMonths <= 0) return ''
-
-  const years = Math.floor(totalMonths / 12)
-  const months = totalMonths % 12
-
-  const parts = []
-  if (years > 0) {
-    parts.push(`${years} ${pluralize(years, 'год', 'года', 'лет')}`)
-  }
-  if (months > 0) {
-    parts.push(`${months} ${pluralize(months, 'месяц', 'месяца', 'месяцев')}`)
-  }
-
-  return parts.join(' ')
-}
-
-const calculateMonthsBetween = (startDateStr, endDateStr) => {
-  if (!startDateStr) return 0
-  const start = parseDate(startDateStr)
-  const end = endDateStr ? parseDate(endDateStr) : new Date()
-
-  const yearsDiff = end.getFullYear() - start.getFullYear()
-  const monthsDiff = end.getMonth() - start.getMonth()
-
-  const total = yearsDiff * 12 + monthsDiff
-  return total > 0 ? total : 0
-}
-
-const formatPeriod = (item) => {
-  if (item.period) return item.period
-
-  const start = parseDate(item.startDate)
-  const startStr = `${MONTHS_RU[start.getMonth()]} ${start.getFullYear()}`
-
-  if (!item.endDate) {
-    return `${startStr} - По настоящее время`
-  }
-
-  const end = parseDate(item.endDate)
-  const endStr = `${MONTHS_RU[end.getMonth()]} ${end.getFullYear()}`
-
-  return `${startStr} - ${endStr}`
-}
+const formatPeriod = (item) => formatPeriodByLabels(item, props.labels)
 
 const getItemDuration = (item) => {
   if (!item.startDate) return ''
-  const months = calculateMonthsBetween(item.startDate, item.endDate)
-  return formatDuration(months)
+  return formatDuration(calculateMonthsBetween(item.startDate, item.endDate), props.labels)
 }
 
 const totalExperienceText = computed(() => {
@@ -262,7 +206,7 @@ const totalExperienceText = computed(() => {
     totalMonths += calculateMonthsBetween(item.startDate, item.endDate)
   })
 
-  return formatDuration(totalMonths)
+  return formatDuration(totalMonths, props.labels)
 })
 </script>
 
@@ -308,6 +252,11 @@ const totalExperienceText = computed(() => {
 .icon-link {
   vertical-align: baseline;
   opacity: 0.7;
+}
+
+.project-tech-chip {
+  font-size: 0.8rem !important;
+  height: 28px !important;
 }
 
 .company-avatar {
