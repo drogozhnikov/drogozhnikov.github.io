@@ -1,3 +1,43 @@
+import {
+    css,
+    docker,
+    flyway,
+    git,
+    gitHub,
+    gitLab,
+    gradle,
+    grafana,
+    html5,
+    java,
+    javascript,
+    jira,
+    junit5,
+    jwt,
+    kafka,
+    keycloak,
+    kotlin,
+    linux,
+    maven,
+    minio,
+    mockito,
+    postgresql,
+    prometheus,
+    restApi,
+    sass,
+    sonarLint,
+    springBoot,
+    springCloud,
+    springDataJpa,
+    springFramework,
+    springSecurity,
+    springWebFlux,
+    trello,
+    vue3,
+    vuetify,
+    webSockets,
+    windows,
+} from './techCatalog.js'
+
 export const general = {
     avatar: '/profile.png',
     contacts: [
@@ -9,69 +49,69 @@ export const general = {
         { icon: '$TelegramIcon', text: 'Telegram', url: 'https://t.me/drogozhnikov' },
     ],
     software: [
-        { name: 'Kotlin', icon: '$KotlinIcon' },
-        { name: 'Java', icon: '$JavaIcon' },
-        { name: 'Vuetify', icon: '$VuetifyIcon' },
-        { name: 'Spring framework', icon: '$SpringIcon' },
-        { name: 'PostgreSQL', icon: '$PostgresIcon' },
-        { name: 'Docker', icon: '$DockerIcon' },
+        kotlin,
+        java,
+        vuetify,
+        springFramework,
+        postgresql,
+        docker,
     ],
     technologies: [
         {
             category: 'Frontend',
             items: [
-                { name: 'Vue3', icon: '$VueIcon' },
-                { name: 'Vuetify3', icon: '$VuetifyIcon' },
-                { name: 'HTML5', icon: '$HtmlIcon' },
-                { name: 'JavaScript', icon: '$JsIcon' },
-                { name: 'CSS', icon: '$CssIcon' },
-                { name: 'Sass', icon: '$SassIcon' }
+                vue3,
+                vuetify,
+                html5,
+                javascript,
+                css,
+                sass,
             ]
         },
         {
             category: 'Backend & Core',
             items: [
-                { name: 'Spring Boot', icon: '$SpringBootIcon' },
-                { name: 'Spring Cloud', icon: '$SpringCloudIcon' },
-                { name: 'Spring Data JPA', icon: '$SpringDataIcon' },
-                { name: 'Spring Security', icon: '$SpringSecurityIcon' },
-                { name: 'Spring WebFlux', icon: '$SpringWebFluxIcon' },
-                { name: 'Flyway', icon: '$FlywayIcon' },
-                { name: 'WebSockets', icon: '$WebSocketsIcon' },
-                { name: 'REST API', icon: '$RestIcon' },
-                { name: 'Kafka', icon: '$KafkaIcon' },
-                { name: 'MinIO', icon: '$MinioIcon' },
-                { name: 'Keycloak', icon: '$KeycloakIcon' },
+                springBoot,
+                springCloud,
+                springDataJpa,
+                springSecurity,
+                springWebFlux,
+                flyway,
+                webSockets,
+                restApi,
+                kafka,
+                minio,
+                keycloak,
             ]
         },
         {
             category: 'Testing & Quality',
             items: [
-                { name: 'JUnit 5', icon: '$JunitIcon' },
-                { name: 'Mockito', icon: '$MockitoIcon' },
-                { name: 'SonarLint', icon: '$SonarLintIcon' }
+                junit5,
+                mockito,
+                sonarLint,
             ]
         },
         {
             category: 'Observability & Build',
             items: [
-                { name: 'JWT', icon: '$JwtIcon' },
-                { name: 'Grafana', icon: '$GrafanaIcon' },
-                { name: 'Prometheus', icon: '$PrometheusIcon' },
-                { name: 'Git', icon: '$GitIcon' },
-                { name: 'Maven', icon: '$MavenIcon' },
-                { name: 'Gradle', icon: '$GradleIcon' }
+                jwt,
+                grafana,
+                prometheus,
+                git,
+                maven,
+                gradle,
             ]
         },
         {
             category: 'Environment & Tools',
             items: [
-                { name: 'Linux', icon: '$LinuxIcon' },
-                { name: 'Windows', icon: '$WindowsIcon' },
-                { name: 'GitLab', icon: '$GitlabIcon' },
-                { name: 'GitHub', icon: '$GithubIcon' },
-                { name: 'Jira', icon: '$JiraIcon' },
-                { name: 'Trello', icon: '$TrelloIcon' }
+                linux,
+                windows,
+                gitLab,
+                gitHub,
+                jira,
+                trello,
             ]
         }
     ]

@@ -8,14 +8,14 @@
           cols="6"
       >
         <div
-            class="software-item text-grey-lighten-1 d-flex flex-row align-center"
+            class="software-item text-grey-lighten-1 d-flex flex-row align-center py-1 px-2 rounded transition-fast"
             :style="{
             '--item-font-size': fontSize,
             '--item-line-height': lineHeight
           }"
         >
           <v-icon :icon="item.icon" size="large" class="me-2 flex-shrink-0" />
-          <span class="text-truncate">{{ item.name }}</span>
+          <span class="text-truncate font-weight-regular">{{ item.name }}</span>
         </div>
       </v-col>
     </v-row>
@@ -42,9 +42,6 @@ export default {
       type: String,
       default: "1.2"
     }
-  },
-  data() {
-    return {}
   }
 }
 </script>
@@ -54,4 +51,21 @@ export default {
   white-space: nowrap
   font-size: var(--item-font-size)
   line-height: var(--item-line-height)
+  border: 1px solid transparent
+  background-color: transparent
+
+  &:hover
+    background-color: rgba(255, 255, 255, 0.06)
+    border-color: rgba(255, 255, 255, 0.05)
+    color: #ffffff !important
+
+:deep(.v-icon)
+  display: inline-flex
+  align-items: center
+  justify-content: center
+
+  svg
+    width: 100%
+    height: 100%
+    display: block
 </style>

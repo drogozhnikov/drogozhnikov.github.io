@@ -1,5 +1,16 @@
 // resumeEng.js
 import {general} from './general'
+import {
+    docker,
+    java,
+    kotlin,
+    restApi,
+    springBoot,
+    springFramework,
+    sql,
+    vue3,
+    vuetify,
+} from './techCatalog.js'
 
 export const resumeEng = {
     ...general,
@@ -131,22 +142,13 @@ export const resumeEng = {
                     name: 'Electronic supplier registration system',
                     url: 'https://21post.by/',
                     description: 'Full-stack solution for automating counterparty verification and application management. Backend and adaptive UIs for warehouse operators.',
-                    stack: [
-                        {name: 'Kotlin', icon: '$KotlinIcon'},
-                        {name: 'Spring Boot', icon: '$SpringBootIcon'},
-                        {name: 'Vue 3', icon: '$VueIcon'},
-                        {name: 'Vuetify', icon: '$VuetifyIcon'},
-                        {name: 'Docker', icon: '$DockerIcon'}
-                    ]
+                    stack: [kotlin, springBoot, vue3, vuetify, docker]
                 },
                 {
                     name: 'WMS optimization (EME.MWS)',
                     url: 'https://eme-wms.ru/',
                     description: 'Identifying weak or unoptimized warehouse management system components and refactoring them.',
-                    stack: [
-                        {name: 'REST API', icon: '$RestIcon'},
-                        {name: 'SQL', icon: '$DatabaseIcon'}
-                    ]
+                    stack: [restApi, sql]
                 }
             ]
         },
@@ -177,22 +179,13 @@ export const resumeEng = {
                     name: 'Electronic supplier registration system',
                     url: 'https://21post.by/',
                     description: 'Development and evolution of a full-stack solution: counterparty verification, applications, and UIs for warehouse operators.',
-                    stack: [
-                        {name: 'Kotlin', icon: '$KotlinIcon'},
-                        {name: 'Spring Boot', icon: '$SpringBootIcon'},
-                        {name: 'Vue 3', icon: '$VueIcon'},
-                        {name: 'Vuetify', icon: '$VuetifyIcon'},
-                        {name: 'Docker', icon: '$DockerIcon'}
-                    ]
+                    stack: [kotlin, springBoot, vue3, vuetify, docker]
                 },
                 {
                     name: 'WMS evolution (EME.MWS)',
                     url: 'https://eme-wms.ru/',
                     description: 'Warehouse module development, integrations, and enhancements to existing processes.',
-                    stack: [
-                        {name: 'REST API', icon: '$RestIcon'},
-                        {name: 'SQL', icon: '$DatabaseIcon'}
-                    ]
+                    stack: [restApi, sql]
                 }
             ]
         },
@@ -223,12 +216,7 @@ export const resumeEng = {
                     name: 'eDeclarant / WebDeclarant',
                     url: 'https://declarant.by/ru/',
                     description: 'Customs declaration platform: feature development, backend, and ongoing support to match legal requirements.',
-                    stack: [
-                        {name: 'Java', icon: '$JavaIcon'},
-                        {name: 'Spring framework', icon: '$SpringIcon'},
-                        {name: 'REST API', icon: '$RestIcon'},
-                        {name: 'SQL', icon: '$DatabaseIcon'}
-                    ]
+                    stack: [java, springFramework, restApi, sql]
                 }
             ]
         },

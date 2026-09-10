@@ -69,11 +69,12 @@ export default {
   white-space: nowrap
   font-size: var(--item-font-size)
   line-height: var(--item-line-height)
-  background-color: rgba(255, 255, 255, 0.02)
-  border: 1px solid rgba(255, 255, 255, 0.05)
+  border: 1px solid transparent
+  background-color: transparent
 
   &:hover
     background-color: rgba(255, 255, 255, 0.06)
+    border-color: rgba(255, 255, 255, 0.05)
     color: #ffffff !important
 
 :deep(.v-icon)
