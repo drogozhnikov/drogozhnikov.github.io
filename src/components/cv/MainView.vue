@@ -14,6 +14,7 @@
                 :technologies="currentData.technologies"
                 :hobbies="currentData.hobbies"
                 :labels="currentData.labels"
+                :lang="currentLang"
             />
           </v-col>
 

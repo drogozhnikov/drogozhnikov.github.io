@@ -12,10 +12,10 @@
       <ProgressList :title="labels?.skills || 'SKILLS'" :items="skills" />
       <v-divider class="border-opacity-25 mb-6" />
 
-      <Software :title="labels?.software || 'SOFTWARE'" :items="software" />
+      <Software :title="labels?.software || 'SOFTWARE'" :items="software" :lang="lang" />
       <v-divider class="border-opacity-25 mb-6" />
 
-      <Technologies :title="labels?.technologies || 'TECHNOLOGIES'" :items="technologies" />
+      <Technologies :title="labels?.technologies || 'TECHNOLOGIES'" :items="technologies" :lang="lang" />
       <v-divider class="border-opacity-25 mb-6" />
 
       <Hobbies :title="labels?.hobbies || 'HOBBIES'" :hobbies="hobbies" />
@@ -41,7 +41,8 @@ defineProps({
   software: { type: Array, default: () => [] },
   technologies: { type: Array, default: () => [] },
   hobbies: { type: Array, default: () => [] },
-  labels: { type: Object, default: () => ({}) }
+  labels: { type: Object, default: () => ({}) },
+  lang: { type: String, default: 'rus' }
 })
 </script>
 

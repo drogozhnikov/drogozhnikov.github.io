@@ -7,24 +7,25 @@
           :key="index"
           cols="6"
       >
-        <div
-            class="software-item text-grey-lighten-1 d-flex flex-row align-center py-1 px-2 rounded transition-fast"
-            :style="{
-            '--item-font-size': fontSize,
-            '--item-line-height': lineHeight
-          }"
-        >
-          <v-icon :icon="item.icon" size="large" class="me-2 flex-shrink-0" />
-          <span class="text-truncate font-weight-regular">{{ item.name }}</span>
-        </div>
+        <TechItem
+            :item="item"
+            icon-size="large"
+            :font-size="fontSize"
+            :line-height="lineHeight"
+            :lang="lang"
+            :index="index"
+        />
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
+import TechItem from './TechItem.vue'
+
 export default {
   name: "Software",
+  components: { TechItem },
   props: {
     title: {
       type: String,
@@ -41,31 +42,11 @@ export default {
     lineHeight: {
       type: String,
       default: "1.2"
+    },
+    lang: {
+      type: String,
+      default: "rus"
     }
   }
 }
 </script>
-
-<style scoped lang="sass">
-.software-item
-  white-space: nowrap
-  font-size: var(--item-font-size)
-  line-height: var(--item-line-height)
-  border: 1px solid transparent
-  background-color: transparent
-
-  &:hover
-    background-color: rgba(255, 255, 255, 0.06)
-    border-color: rgba(255, 255, 255, 0.05)
-    color: #ffffff !important
-
-:deep(.v-icon)
-  display: inline-flex
-  align-items: center
-  justify-content: center
-
-  svg
-    width: 100%
-    height: 100%
-    display: block
-</style>
