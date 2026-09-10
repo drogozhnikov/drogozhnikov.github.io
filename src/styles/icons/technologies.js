@@ -31,6 +31,7 @@ import VuetifyIcon from "@/assets/icons/vue/content/technologies/vuetify-icon.vu
 import WebSocketsIcon from "@/assets/icons/vue/content/technologies/web-sockets-icon.vue"
 import WindowsIcon from "@/assets/icons/vue/content/technologies/windows-icon.vue"
 import DatabaseIcon from "@/assets/icons/vue/content/technologies/database-icon.vue";
+import ConfluenceIcon from "@/assets/icons/vue/content/technologies/confluence-icon.vue";
 
 export const technologies_icons = {
     CssIcon,
@@ -66,4 +67,5 @@ export const technologies_icons = {
     WebSocketsIcon,
     WindowsIcon,
     DatabaseIcon,
+    ConfluenceIcon,
 }

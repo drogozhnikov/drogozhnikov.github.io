@@ -225,6 +225,12 @@ export const trello = {
   description: { ru: 'Канбан-доски', en: 'Kanban boards' },
   link: 'https://trello.com/',
 }
+export const confluence = {
+  name: 'Confluence',
+  icon: '$ConfluenceIcon',
+  description: { ru: 'Документы и база знаний', en: 'Kanban boards' },
+  link: 'https://www.atlassian.com/software/confluence',
+}
 
 export const sql = {
   name: 'SQL',

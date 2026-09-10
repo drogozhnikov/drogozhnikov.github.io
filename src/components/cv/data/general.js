@@ -1,4 +1,5 @@
 import {
+    confluence,
     css,
     docker,
     flyway,
@@ -112,6 +113,7 @@ export const general = {
                 gitHub,
                 jira,
                 trello,
+                confluence,
             ]
         }
     ]
