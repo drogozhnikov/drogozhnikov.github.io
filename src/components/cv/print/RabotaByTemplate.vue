@@ -35,12 +35,27 @@
     </header>
 
     <!-- Сопроводительное письмо / О себе -->
-    <section v-if="data.about && data.about.length" class="pdf-section">
-      <h2 class="section-title">{{ data.labels?.about || 'Сопроводительное письмо' }}</h2>
-      <div v-for="(item, i) in data.about" :key="i" class="about-block">
+    <section
+        v-for="section in narrativeSections"
+        :key="section.key"
+        class="pdf-section"
+    >
+      <h2 class="section-title">{{ section.title }}</h2>
+      <div v-for="(item, i) in section.items" :key="i" class="about-block">
         <p class="about-p">{{ item.text }}</p>
         <ul v-if="item.subtext && item.subtext.length" class="pdf-list">
-          <li v-for="(sub, j) in item.subtext" :key="j">{{ sub }}</li>
+          <li v-for="(sub, j) in item.subtext" :key="j">
+            <a
+                v-if="subUrl(sub)"
+                :href="subUrl(sub)"
+                target="_blank"
+                rel="noopener noreferrer"
+            >{{ subText(sub) }}</a>
+            <template v-else>{{ subText(sub) }}</template>
+            <ul v-if="subItems(sub).length" class="pdf-list">
+              <li v-for="(nested, n) in subItems(sub)" :key="n">{{ nested }}</li>
+            </ul>
+          </li>
         </ul>
       </div>
     </section>
@@ -154,6 +169,35 @@ const props = defineProps({
     type: Object,
     required: true
   }
+})
+
+const hasBlocks = (value) => {
+  if (!value) return false
+  if (typeof value === 'string') return value.length > 0
+  return value.length > 0
+}
+
+const subText = (sub) => (typeof sub === 'string' ? sub : (sub?.text ?? ''))
+const subUrl = (sub) => (typeof sub === 'string' ? '' : (sub?.url ?? ''))
+const subItems = (sub) => (typeof sub === 'string' ? [] : (sub?.items || []))
+
+const narrativeSections = computed(() => {
+  const sections = []
+  if (hasBlocks(props.data.coverLetter)) {
+    sections.push({
+      key: 'coverLetter',
+      title: props.data.labels?.coverLetter || 'Сопроводительное письмо',
+      items: props.data.coverLetter
+    })
+  }
+  if (hasBlocks(props.data.about)) {
+    sections.push({
+      key: 'about',
+      title: props.data.labels?.about || 'О себе',
+      items: props.data.about
+    })
+  }
+  return sections
 })
 
 const parseDate = (str) => {

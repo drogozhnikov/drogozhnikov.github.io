@@ -33,10 +33,20 @@
         :labels="data.labels"
     />
 
+    <!-- Сопроводительное письмо -->
+    <About
+        v-if="data.coverLetter?.length"
+        :items="data.coverLetter"
+        :title="data.labels?.coverLetter"
+        icon="$AboutIcon"
+    />
+
     <!-- О себе -->
     <About
-        :aboutData="data.about"
+        v-if="data.about?.length"
+        :items="data.about"
         :title="data.labels?.about"
+        icon="mdi-account-outline"
     />
   </v-sheet>
 </template>

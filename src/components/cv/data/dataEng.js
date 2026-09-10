@@ -27,7 +27,8 @@ export const resumeEng = {
         technologies: 'TECHNOLOGIES',
         hobbies: 'HOBBIES',
 
-        about: 'COVER LETTER',
+        about: 'ABOUT ME',
+        coverLetter: 'COVER LETTER',
         experience: 'WORK EXPERIENCE',
         responsibilities: 'Responsibilities',
         achievements: 'Achievements',
@@ -56,7 +57,7 @@ export const resumeEng = {
         travelTime: 'Remote / Up to 30 minutes'
     },
 
-    about: [
+    coverLetter: [
         {
             text: 'Experienced developer and team lead. I design architecture, support existing products, build scalable applications, and manage engineering teams.',
             subtext: [
@@ -93,6 +94,33 @@ export const resumeEng = {
             subtext: []
         }
     ],
+
+    about: [
+        {
+            text: 'Outside of work I am into hardware and making things: 3D modeling, 3D printing and engraving on a homemade 3D printer and laser engraver, and microcontroller programming.',
+            subtext: []
+        },
+        {
+            text: 'I enjoy travel, mountain hiking, and cycling.',
+            subtext: []
+        },
+        {
+            text: 'In my free time I build pet projects — from the idea to a working product.',
+            subtext: [
+                {
+                    text: 'Wedding invitation and a photo/video gallery — devcreative.by',
+                    url: 'https://devcreative.by'
+                },
+                {
+                    text: 'Online CV — a pet project on Vuetify 3, GitHub Pages, and GitHub Actions.',
+                    url: 'https://drogozhnikov.github.io/'
+                },
+                'A time manager with notifications via a Telegram bot.',
+                'An Android pharmacode scanner without ready-made libraries: data for the scanned code comes from an FTP server.',
+                'Diploma project: a radio-signal emulator for teaching the basics of how an oscilloscope works.'
+            ]
+        }
+    ],
     personal: [
         {label: 'Date of birth', value: '28 April 1995'},
         {label: 'Residence', value: 'Minsk'},
@@ -106,11 +134,14 @@ export const resumeEng = {
         {name: 'Innovation', level: 80}
     ],
     hobbies: [
-        {name: 'Design', icon: 'mdi-pencil-ruler'},
-        {name: 'Development', icon: 'mdi-code-tags'},
-        {name: 'Modeling', icon: 'mdi-cube-outline'},
-        {name: 'Woodcarving', icon: 'mdi-saw-blade'},
-        {name: 'Travel', icon: 'mdi-airplane'}
+        {name: 'Travel', icon: 'mdi-airplane'},
+        {name: 'Hiking', icon: 'mdi-hiking'},
+        {name: 'Cycling', icon: 'mdi-bike'},
+        {name: '3D modeling', icon: 'mdi-cube-outline'},
+        {name: '3D printing', icon: 'mdi-printer-3d'},
+        {name: 'Engraving', icon: 'mdi-laser-pointer'},
+        {name: 'Microcontrollers', icon: 'mdi-chip'},
+        {name: 'Woodcarving', icon: 'mdi-saw-blade'}
     ],
     experience: [
         {
@@ -131,6 +162,7 @@ export const resumeEng = {
             achievements: [
                 'Full-stack development: Built a high-performance Kotlin/Spring Boot backend and adaptive Vuetify 3 UIs for warehouse operators and administrators.',
                 'DevOps and containerization: Set up a Docker environment and automatic deployment of the electronic supplier registration system to the company’s own servers.',
+                'Android app (.apk) build delivery tool for QA: Built a service for working with a Telegram bot that lets the QA team pick a GitLab branch, configure the build (Build Types and other settings), run CI/CD, track the stages, and receive a personal message with the file attached, thereby reducing how much time the development department spent on test builds.',
                 'Process optimization: Led a large-scale effort to find weak or unoptimized components in the EME.MWS warehouse management system.',
                 'Initiatives: Proposed more than 40 ideas to simplify the development team’s work and improve warehouse processes.',
                 'Updates without downtime: Cut system update time by more than 15 minutes. Designed and proposed a scheme that would allow updates without stopping the warehouse.',

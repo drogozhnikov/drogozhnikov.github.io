@@ -175,13 +175,24 @@
         </article>
       </section>
 
-      <section v-if="hasAbout" class="main-section">
-        <h2 class="section-title">{{ data.labels.about }}</h2>
-        <p v-if="typeof data.about === 'string'" class="about-text">{{ data.about }}</p>
-        <div v-else v-for="(item, i) in data.about" :key="i" class="about-block">
+      <section v-for="section in narrativeSections" :key="section.key" class="main-section">
+        <h2 class="section-title">{{ section.title }}</h2>
+        <p v-if="typeof section.items === 'string'" class="about-text">{{ section.items }}</p>
+        <div v-else v-for="(item, i) in section.items" :key="i" class="about-block">
           <p class="about-text">{{ item.text }}</p>
           <ul v-if="item.subtext?.length" class="custom-list">
-            <li v-for="(sub, j) in item.subtext" :key="j">{{ sub }}</li>
+            <li v-for="(sub, j) in item.subtext" :key="j">
+              <a
+                  v-if="subUrl(sub)"
+                  :href="subUrl(sub)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >{{ subText(sub) }}</a>
+              <template v-else>{{ subText(sub) }}</template>
+              <ul v-if="subItems(sub).length" class="custom-list">
+                <li v-for="(nested, n) in subItems(sub)" :key="n">{{ nested }}</li>
+              </ul>
+            </li>
           </ul>
         </div>
       </section>
@@ -199,11 +210,33 @@ const props = defineProps({
   }
 })
 
-const hasAbout = computed(() => {
-  const about = props.data.about
-  if (!about) return false
-  if (typeof about === 'string') return about.length > 0
-  return about.length > 0
+const hasBlocks = (value) => {
+  if (!value) return false
+  if (typeof value === 'string') return value.length > 0
+  return value.length > 0
+}
+
+const subText = (sub) => (typeof sub === 'string' ? sub : (sub?.text ?? ''))
+const subUrl = (sub) => (typeof sub === 'string' ? '' : (sub?.url ?? ''))
+const subItems = (sub) => (typeof sub === 'string' ? [] : (sub?.items || []))
+
+const narrativeSections = computed(() => {
+  const sections = []
+  if (hasBlocks(props.data.coverLetter)) {
+    sections.push({
+      key: 'coverLetter',
+      title: props.data.labels?.coverLetter || 'Сопроводительное письмо',
+      items: props.data.coverLetter
+    })
+  }
+  if (hasBlocks(props.data.about)) {
+    sections.push({
+      key: 'about',
+      title: props.data.labels?.about || 'О себе',
+      items: props.data.about
+    })
+  }
+  return sections
 })
 
 const formatSalary = (value) => {
