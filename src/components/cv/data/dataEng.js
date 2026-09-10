@@ -93,7 +93,7 @@ export const resumeEng = {
 
     coverLetter: [
         {
-            text: 'Experienced developer and team lead. I design architecture, support existing products, build scalable applications, and manage engineering teams.',
+            text: 'Experienced developer and team lead. I design architecture, support existing products, build scalable business solutions, and manage engineering teams.',
             subtext: [
                 'Proven experience launching projects from scratch.',
                 'Focus on clean code, performance, and scalability.',
@@ -146,7 +146,7 @@ export const resumeEng = {
                     url: 'https://devcreative.by'
                 },
                 {
-                    text: 'Online CV — a pet project on Vuetify 3, GitHub Pages, and GitHub Actions.',
+                    text: 'Online CV — a pet project on Vuetify 4, GitHub Pages, and GitHub Actions.',
                     url: 'https://drogozhnikov.github.io/'
                 },
                 'A time manager with notifications via a Telegram bot.',
@@ -197,7 +197,7 @@ export const resumeEng = {
                 'Full-stack development: Built a high-performance Kotlin/Spring Boot backend and adaptive Vuetify 3 UIs for warehouse operators and administrators.',
                 'DevOps and containerization: Set up a Docker environment and automatic deployment of the electronic supplier registration system to the company’s own servers.',
                 'Android app (.apk) build delivery tool for QA: Built a service for working with a Telegram bot that lets the QA team pick a GitLab branch, configure the build (Build Types and other settings), run CI/CD, track the stages, and receive a personal message with the file attached, thereby reducing how much time the development department spent on test builds.',
-                'Process optimization: Led a large-scale effort to find weak or unoptimized components in the EME.MWS warehouse management system.',
+                'Process optimization: Led a large-scale effort to find weak or unoptimized components in the EME.WMS warehouse management system.',
                 'Initiatives: Proposed more than 40 ideas to simplify the development team’s work and improve warehouse processes.',
                 'Updates without downtime: Cut system update time by more than 15 minutes. Designed and proposed a scheme that would allow updates without stopping the warehouse.',
                 'Architecture: Designed a scheme for a smooth transition from legacy code to a more reliable microservice architecture with a thin client.',
