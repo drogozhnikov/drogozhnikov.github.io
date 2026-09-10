@@ -68,13 +68,16 @@
     <section v-if="data.experience && data.experience.length" class="pdf-section">
       <h2 class="section-title">
         {{ data.labels?.experience || 'Опыт работы' }}
+        <span v-if="totalExperienceText" class="section-title-meta">
+          ({{ totalExperienceText }})
+        </span>
       </h2>
 
       <article v-for="(exp, i) in data.experience" :key="i" class="exp-item">
         <div class="exp-grid">
           <div class="exp-dates">
-            <div class="date-range">{{ exp.startDate }} — {{ exp.endDate || 'По настоящее время' }}</div>
-            <div v-if="exp.duration" class="date-duration">{{ exp.duration }}</div>
+            <div class="date-range">{{ exp.startDate }} — {{ exp.endDate || presentLabel }}</div>
+            <div v-if="getItemDuration(exp)" class="date-duration">{{ getItemDuration(exp) }}</div>
           </div>
 
           <div class="exp-body">
@@ -127,16 +130,95 @@
         </span>
       </div>
     </section>
+
+    <!-- Технологии -->
+    <section v-if="data.technologies && data.technologies.length" class="pdf-section">
+      <h2 class="section-title">{{ data.labels?.technologies || 'Технологии' }}</h2>
+      <div v-for="(group, g) in data.technologies" :key="g" class="tech-group">
+        <div class="tech-category">{{ group.category }}</div>
+        <div class="skills-tags">
+          <span v-for="(item, i) in group.items" :key="i" class="skill-tag">
+            {{ item.name }}
+          </span>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   data: {
     type: Object,
     required: true
   }
 })
+
+const parseDate = (str) => {
+  if (!str) return new Date()
+  const [month, year] = str.split('.').map(Number)
+  return new Date(year, month - 1, 1)
+}
+
+const pluralize = (number, one, two, five) => {
+  let n = Math.abs(number) % 100
+  if (n >= 5 && n <= 20) return five
+  n %= 10
+  if (n === 1) return one
+  if (n >= 2 && n <= 4) return two
+  return five
+}
+
+const formatDuration = (totalMonths, eng) => {
+  if (totalMonths <= 0) return ''
+
+  const years = Math.floor(totalMonths / 12)
+  const months = totalMonths % 12
+  const parts = []
+
+  if (eng) {
+    if (years > 0) parts.push(`${years} ${years === 1 ? 'year' : 'years'}`)
+    if (months > 0) parts.push(`${months} ${months === 1 ? 'month' : 'months'}`)
+  } else {
+    if (years > 0) parts.push(`${years} ${pluralize(years, 'год', 'года', 'лет')}`)
+    if (months > 0) parts.push(`${months} ${pluralize(months, 'месяц', 'месяца', 'месяцев')}`)
+  }
+
+  return parts.join(' ')
+}
+
+const calculateMonthsBetween = (startDateStr, endDateStr) => {
+  if (!startDateStr) return 0
+  const start = parseDate(startDateStr)
+  const end = endDateStr ? parseDate(endDateStr) : new Date()
+  const total = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
+  return total > 0 ? total : 0
+}
+
+const isEng = computed(() => /experience/i.test(props.data.labels?.experience || ''))
+
+const presentLabel = computed(() => (
+  isEng.value ? 'Present' : 'По настоящее время'
+))
+
+const totalExperienceText = computed(() => {
+  const list = props.data?.experience
+  if (!list?.length) return ''
+
+  let totalMonths = 0
+  list.forEach((item) => {
+    totalMonths += calculateMonthsBetween(item.startDate, item.endDate)
+  })
+
+  return formatDuration(totalMonths, isEng.value)
+})
+
+const getItemDuration = (item) => {
+  if (!item?.startDate) return ''
+  return formatDuration(calculateMonthsBetween(item.startDate, item.endDate), isEng.value)
+}
 
 const formatHref = (url) => {
   if (!url || url === '#') return '#'
@@ -217,8 +299,8 @@ const formatHref = (url) => {
 }
 
 .avatar-img {
-  width: 130px;
-  height: 130px;
+  width: 195px;
+  height: 195px;
   object-fit: cover;
   border-radius: 6px;
 }
@@ -288,6 +370,11 @@ const formatHref = (url) => {
   page-break-after: avoid !important;
 }
 
+.section-title-meta {
+  font-weight: 400;
+  color: #9e9e9e;
+}
+
 .about-p {
   margin: 0 0 6px 0;
   font-size: 8.5pt;
@@ -351,8 +438,9 @@ const formatHref = (url) => {
 }
 
 .date-duration {
-  color: #777777;
+  color: #9e9e9e;
   font-size: 8pt;
+  font-weight: 400;
   margin-top: 2px;
 }
 
@@ -462,6 +550,33 @@ const formatHref = (url) => {
   border: 1px solid #e1e4e8;
   break-inside: avoid;
   page-break-inside: avoid;
+}
+
+.tech-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.tech-category {
+  width: 42mm;
+  flex-shrink: 0;
+  font-size: 8pt;
+  font-weight: 700;
+  color: #777777;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  padding-top: 3px;
+  margin: 0;
+}
+
+.tech-group .skills-tags {
+  flex: 1;
+  min-width: 0;
 }
 
 li {

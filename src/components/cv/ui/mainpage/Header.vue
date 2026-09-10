@@ -39,12 +39,12 @@
 
         <v-list density="compact">
           <v-list-item
-              title="Current CV"
-              @click="$emit('print', 'current')"
-          />
-          <v-list-item
               title="Rabota.by"
               @click="$emit('print', 'rabota')"
+          />
+          <v-list-item
+              title="Current CV"
+              @click="$emit('print', 'current')"
           />
         </v-list>
       </v-menu>

@@ -108,7 +108,12 @@
       </section>
 
       <section v-if="data.experience?.length" class="main-section">
-        <h2 class="section-title">{{ data.labels.experience }}</h2>
+        <h2 class="section-title">
+          {{ data.labels.experience }}
+          <span v-if="totalExperienceText" class="section-title-meta">
+            ({{ totalExperienceText }})
+          </span>
+        </h2>
         <article v-for="(exp, i) in data.experience" :key="i" class="exp-item">
           <div class="exp-header">
             <div class="exp-title-row">
@@ -116,6 +121,7 @@
               <span class="exp-company"> — {{ exp.company }}</span>
             </div>
             <div class="exp-date">{{ formatPeriod(exp) }}</div>
+            <div v-if="getItemDuration(exp)" class="exp-duration">{{ getItemDuration(exp) }}</div>
           </div>
 
           <p v-if="exp.summary" class="exp-summary">{{ exp.summary }}</p>
@@ -207,8 +213,68 @@ const formatSalary = (value) => {
 
 const formatPeriod = (exp) => {
   if (exp.period) return exp.period
-  const end = exp.endDate || 'н.в.'
+  const end = exp.endDate || (isEng.value ? 'Present' : 'н.в.')
   return `${exp.startDate} — ${end}`
+}
+
+const parseDate = (str) => {
+  if (!str) return new Date()
+  const [month, year] = str.split('.').map(Number)
+  return new Date(year, month - 1, 1)
+}
+
+const pluralize = (number, one, two, five) => {
+  let n = Math.abs(number) % 100
+  if (n >= 5 && n <= 20) return five
+  n %= 10
+  if (n === 1) return one
+  if (n >= 2 && n <= 4) return two
+  return five
+}
+
+const formatDuration = (totalMonths, eng) => {
+  if (totalMonths <= 0) return ''
+
+  const years = Math.floor(totalMonths / 12)
+  const months = totalMonths % 12
+  const parts = []
+
+  if (eng) {
+    if (years > 0) parts.push(`${years} ${years === 1 ? 'year' : 'years'}`)
+    if (months > 0) parts.push(`${months} ${months === 1 ? 'month' : 'months'}`)
+  } else {
+    if (years > 0) parts.push(`${years} ${pluralize(years, 'год', 'года', 'лет')}`)
+    if (months > 0) parts.push(`${months} ${pluralize(months, 'месяц', 'месяца', 'месяцев')}`)
+  }
+
+  return parts.join(' ')
+}
+
+const calculateMonthsBetween = (startDateStr, endDateStr) => {
+  if (!startDateStr) return 0
+  const start = parseDate(startDateStr)
+  const end = endDateStr ? parseDate(endDateStr) : new Date()
+  const total = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
+  return total > 0 ? total : 0
+}
+
+const isEng = computed(() => /experience/i.test(props.data.labels?.experience || ''))
+
+const totalExperienceText = computed(() => {
+  const list = props.data?.experience
+  if (!list?.length) return ''
+
+  let totalMonths = 0
+  list.forEach((item) => {
+    totalMonths += calculateMonthsBetween(item.startDate, item.endDate)
+  })
+
+  return formatDuration(totalMonths, isEng.value)
+})
+
+const getItemDuration = (item) => {
+  if (!item?.startDate) return ''
+  return formatDuration(calculateMonthsBetween(item.startDate, item.endDate), isEng.value)
 }
 
 const formatContactValue = (contact) => {
@@ -425,6 +491,12 @@ const formatContactValue = (contact) => {
   border-bottom: 2px solid #0284c7;
 }
 
+.section-title-meta {
+  font-weight: 400;
+  text-transform: none;
+  color: #94a3b8;
+}
+
 .about-text {
   font-size: 8pt;
   margin: 0 0 4px 0;
@@ -471,6 +543,13 @@ li {
 .exp-date {
   font-size: 7.5pt;
   color: #64748b;
+  margin-top: 1px;
+}
+
+.exp-duration {
+  font-size: 7.5pt;
+  font-weight: 400;
+  color: #94a3b8;
   margin-top: 1px;
 }
 
