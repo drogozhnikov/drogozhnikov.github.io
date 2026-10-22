@@ -1,0 +1,13 @@
+{
+  "count": 1600,
+  "speed": 0.1,
+  "speedSpread": 0.6,
+  "direction": { "x": 1, "y": -0.7, "z": -0.9 },
+  "spread": { "x": 0.45, "y": 0.25, "z": 0.3 },
+  "rotation": 0.5,
+  "sizeMin": 0.3,
+  "sizeMax": 0.5,
+  "shape": 2,
+  "skyDark": [0.08, 0.02, 0.01],
+  "skyLight": [0.95, 0.55, 0.25]
+}
