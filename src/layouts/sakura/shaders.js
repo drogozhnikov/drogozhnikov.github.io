@@ -7,6 +7,7 @@ uniform vec3 uOffset;
 uniform vec3 uDOF;  //x:focus distance, y:focus radius, z:max radius
 uniform vec3 uFade; //x:start distance, y:half distance, z:near fade start
 uniform float uShape;
+uniform float uTime;
 
 attribute vec3 aPosition;
 attribute vec3 aEuler;
@@ -27,13 +28,17 @@ varying float diffuse;
 varying float specular;
 varying float rstop;
 varying float distancefade;
+varying float pglow;
 
 void main(void) {
     // Projection is based on vertical angle
     vec4 pos = uModelview * vec4(aPosition + uOffset, 1.0);
     gl_Position = uProjection * pos;
-    float spritePad = (uShape > 0.5 && uShape < 1.5) ? 2.0 : 1.0;
+    float spritePad = (uShape > 0.5 && uShape < 1.5) ? 2.0 : 2.5;
     gl_PointSize = aMisc.x * uProjection[1][1] / -pos.z * uResolution.y * 0.5 * spritePad;
+    float h1 = fract(sin(dot(aPosition.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    float h2 = fract(sin(dot(aPosition.yz, vec2(39.346, 11.135))) * 24634.6345);
+    pglow = 0.5 + 0.5 * sin(uTime * (0.65 + h2 * 1.7) + h1 * 6.28318);
     
     pposition = pos.xyz;
     psize = aMisc.x;
@@ -120,6 +125,7 @@ varying float diffuse;
 varying float specular;
 varying float rstop;
 varying float distancefade;
+varying float pglow;
 
 float ellipse(vec2 p, vec2 o, vec2 r) {
     vec2 lp = (p - o) / r;
@@ -146,7 +152,8 @@ void main(void) {
 
     float np = dot(normZ, p);
     vec3 tp = p + d * np / nd;
-    vec2 coord = vec2(dot(normX, tp), dot(normY, tp));
+    float pad = (uShape > 0.5 && uShape < 1.5) ? 2.0 : 2.5;
+    vec2 coord = vec2(dot(normX, tp), dot(normY, tp)) * pad;
 
     if (uShape < 0.5) {
         const float flwrsn = 0.258819045102521;
@@ -173,12 +180,11 @@ void main(void) {
         col = mix(fadeCol, col, distancefade);
 
         float alpha = (rstop > 0.001)? (0.5 - r / (rstop * 2.0)) : 1.0;
-        alpha = smoothstep(0.0, 1.0, alpha) * palpha;
+        alpha = smoothstep(0.0, 1.0, alpha) * palpha * (0.78 + 0.22 * pglow);
 
         gl_FragColor = vec4(col * 0.5, alpha);
     } else if (uShape < 1.5) {
-        float rlen = length(coord);
-        float slen = rlen * 2.0;
+        float slen = length(coord);
         float ang = atan(coord.y, coord.x);
         float arms = pow(abs(cos(ang * 3.0)), 8.0);
         float body = slen - mix(0.72, 0.16, arms);
@@ -189,7 +195,7 @@ void main(void) {
         col = col * diffuse + specular;
         col = mix(fadeCol, col, distancefade);
         float alpha = (rstop > 0.001) ? (0.5 - r / (rstop * 2.0)) : 1.0;
-        alpha = smoothstep(0.0, 1.0, alpha) * palpha;
+        alpha = smoothstep(0.0, 1.0, alpha) * palpha * (0.78 + 0.22 * pglow);
         gl_FragColor = vec4(col * 0.5, alpha);
     } else if (uShape < 2.5) {
         vec2 lp = coord;
@@ -217,13 +223,16 @@ void main(void) {
         col = col * diffuse + specular;
         col = mix(fadeCol, col, distancefade);
         float alpha = (rstop > 0.001) ? (0.5 - r / (rstop * 2.0)) : 1.0;
-        alpha = smoothstep(0.0, 1.0, alpha) * palpha;
+        alpha = smoothstep(0.0, 1.0, alpha) * palpha * (0.78 + 0.22 * pglow);
         gl_FragColor = vec4(col * 0.5, alpha);
     } else {
-        float glow = exp(-dot(coord, coord) * 6.0);
-        if (glow < 0.03) discard;
-        vec3 col = mix(vec3(0.35, 0.65, 0.15), vec3(1.0, 0.92, 0.45), glow);
-        col += vec3(1.0, 0.85, 0.4) * specular * glow;
+        vec2 g = coord;
+        float r = length(g);
+        float body = exp(-r * r * 1.6);
+        float edge = 1.0 - smoothstep(0.2, 1.0, r);
+        float glow = body * edge * (0.62 + 0.38 * pglow);
+        vec3 col = mix(vec3(0.72, 0.9, 0.38), vec3(1.0, 0.97, 0.72), smoothstep(0.0, 0.65, body));
+        col += vec3(1.0, 0.92, 0.6) * specular * glow;
         col = mix(fadeCol, col, distancefade);
         gl_FragColor = vec4(col * 0.8, glow * palpha);
     }

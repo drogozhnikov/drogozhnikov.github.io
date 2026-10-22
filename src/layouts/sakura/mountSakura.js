@@ -323,7 +323,7 @@ export function mountSakura(canvas, config) {
         
         pointFlower.program = createShader(
             vtxsrc, frgsrc,
-            ['uProjection', 'uModelview', 'uResolution', 'uOffset', 'uDOF', 'uFade', 'uShape'],
+            ['uProjection', 'uModelview', 'uResolution', 'uOffset', 'uDOF', 'uFade', 'uShape', 'uTime'],
             ['aPosition', 'aEuler', 'aMisc']
         );
         
@@ -479,6 +479,7 @@ export function mountSakura(canvas, config) {
         gl.uniform3fv(prog.uniforms.uDOF, Vector3.arrayForm(camera.dof));
         gl.uniform3fv(prog.uniforms.uFade, Vector3.arrayForm(pointFlower.fader));
         gl.uniform1f(prog.uniforms.uShape, config.shape);
+        gl.uniform1f(prog.uniforms.uTime, timeInfo.elapsed);
 
         gl.bindBuffer(gl.ARRAY_BUFFER, pointFlower.buffer);
         gl.bufferData(gl.ARRAY_BUFFER, pointFlower.dataArray, gl.DYNAMIC_DRAW);
