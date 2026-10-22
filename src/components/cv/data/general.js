@@ -42,12 +42,12 @@ import {
 export const general = {
     avatar: '/profile.png',
     contacts: [
-        { icon: 'mdi-phone', text: 'МТС', url: 'tel:+375295630839' },
-        { icon: '$GmailIcon', text: 'Gmail', url: 'mailto:DitarRogozhnikov@gmail.com' },
-        { icon: '$GitHubIcon', text: 'GitHub', url: 'https://github.com/drogozhnikov/' },
-        { icon: '$GitHubIcon', text: 'GitHubOrg', url: 'https://github.com/orgs/ditardev/repositories' },
-        { icon: '$LinkedInIcon', text: 'LinkedIn', url: 'https://www.linkedin.com/in/дмитрий-рогожников-449245199/' },
-        { icon: '$TelegramIcon', text: 'Telegram', url: 'https://t.me/drogozhnikov' },
+        {icon: 'mdi-phone', text: 'МТС', url: 'tel:+375295630839'},
+        {icon: '$GmailIcon', text: 'Gmail', url: 'mailto:DitarRogozhnikov@gmail.com'},
+        {icon: '$GitHubIcon', text: 'GitHub', url: 'https://github.com/drogozhnikov/'},
+        {icon: '$GitHubIcon', text: 'GitHubOrg', url: 'https://github.com/orgs/ditardev/repositories'},
+        {icon: '$LinkedInIcon', text: 'LinkedIn', url: 'https://www.linkedin.com/in/дмитрий-рогожников-449245199/'},
+        {icon: '$TelegramIcon', text: 'Telegram', url: 'https://t.me/drogozhnikov'},
     ],
     software: [
         kotlin,

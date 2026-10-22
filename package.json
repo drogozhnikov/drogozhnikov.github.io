@@ -18,8 +18,6 @@
     "@fontsource/montserrat": "^5.2.6",
     "@fontsource/roboto": "^5.2.9",
     "@mdi/font": "7.4.47",
-    "@tsparticles/slim": "^4.1.1",
-    "@tsparticles/vue3": "^4.1.1",
     "html2canvas-pro": "^2.4.0",
     "jspdf": "^4.2.1",
     "vue": "^3.5.26",

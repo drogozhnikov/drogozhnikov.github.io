@@ -846,8 +846,8 @@ function getRandomFloat(min, max) {
 // ------------------------------------
 
 function generateColor() {
-  // ИСПОЛЬЗУЕМ ДИАПАЗОН ИЗ config
-  const randomHue = getRandomFloat(config.minHue, config.maxHue);
+  const hueRange = getCursorHue();
+  const randomHue = getRandomFloat(hueRange.minHue, hueRange.maxHue);
 
   const c = HSVtoRGB(randomHue, 1.0, 1.0); // Используем оттенок из диапазона
   c.r *= 0.15;
@@ -1313,7 +1313,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   width: 100vw;
   height: 100vh;

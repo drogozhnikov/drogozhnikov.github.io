@@ -12,7 +12,7 @@ import * as directives from 'vuetify/directives'
 
 import {aliases, mdi} from "vuetify/lib/iconsets/mdi";
 
-import * as config from "@/styles/themes/config"
+import * as config from "@/styles/themes/config.js"
 import {app_icons} from "@/styles/icons/icons.js"
 import '@/styles/settings.scss'
 
